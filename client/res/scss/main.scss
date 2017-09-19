@@ -2,6 +2,8 @@
 @import './home.scss';
 @import './view_item.scss';
 @import "./loader.scss";
+@import "./grid.css";
+@import "./nav.scss";
 
 @import url('https://fonts.googleapis.com/css?family=Raleway:400,600|Roboto:100,300');
 
@@ -39,7 +41,7 @@ div, p, span {
 
 .header {
   display: flex;
-  flex-direction: column;
+  //flex-direction: column;
   align-items: center;
   h1 {
     text-align: center;
