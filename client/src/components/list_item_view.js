@@ -11,7 +11,7 @@ class ListItemView extends Component {
   render() {
     const { item } = this.props;
     if (!item) {
-      return (<div><Loader/> Loading</div>);
+      return (<div><Loader/></div>);
     }
 
     return (
