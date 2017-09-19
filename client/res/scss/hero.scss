@@ -1,0 +1,117 @@
+section {
+
+}
+
+.hero {
+  background-color: $nav-color-on-scroll;
+  color: #ffffff;
+  h1, h2 {
+    color: $white;
+  }
+  h1 {
+    font-size: 40px;
+    font-weight: 500;
+    margin-bottom: 14px;
+  }
+  h2 {
+    font-size: 24px;
+    font-weight: 300;
+  }
+}
+
+.u-pad-section {
+  padding: 80px 24px;
+}
+
+.u-flex-grid {
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -moz-box-orient: horizontal;
+  box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -moz-box-direction: normal;
+  box-direction: normal;
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  flex-direction: row;
+  -ms-flex-direction: row;
+  & > .u-flex-item {
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    box-flex: 1;
+    -webkit-flex: 1;
+    -moz-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+  }
+}
+
+.u-flex-item {
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  box-align: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  -o-align-items: center;
+  align-items: center;
+  -ms-flex-align: center;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  box-pack: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  -o-justify-content: center;
+  justify-content: center;
+  -ms-flex-pack: center;
+}
+
+.hero-text {
+  -webkit-box-flex: 0;
+  -moz-box-flex: 0;
+  box-flex: 0;
+  -webkit-flex: 0 0 624px;
+  -moz-flex: 0 0 624px;
+  -ms-flex: 0 0 624px;
+  flex: 0 0 624px;
+}
+
+.apply-form {
+  margin-top: 24px;
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  input {
+    float: left;
+    &[type="text"] {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+      border-right: none;
+    }
+    &[type="submit"] {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+      padding: 6px 40px;
+    }
+  }
+}
+
+input {
+  line-height: normal;
+}

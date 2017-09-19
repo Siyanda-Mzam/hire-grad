@@ -10,6 +10,7 @@
     background-repeat: no-repeat;
     height: 60px;
     background-position: center;
+    margin-top: 10px;
   }
   .nav-items {
     display: inline-block;
@@ -32,7 +33,7 @@
       &.buttonify {
         height: 36px;
         line-height: 36px;
-        border: 1px solid #ffffff;
+        border: 1px solid $white;
         border-radius: 4px;
         margin: 12px 12px;
       }
@@ -67,4 +68,9 @@
   margin-right: auto;
   width: 1140px;
   max-width: 100%;
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
 }
