@@ -1,7 +1,7 @@
 {
-  "name": "react-expressjs",
+  "name": "hire-grad",
   "version": "4.0.0",
-  "description": "Boilerplate for ReactJS project with ExpressJS server",
+  "description": "A web platform to hire graduates",
   "main": "server/bin/server.js",
   "scripts": {
     "dev": "webpack-dev-server --config webpack/client.dev.js",
