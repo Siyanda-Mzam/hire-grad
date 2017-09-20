@@ -1,14 +1,14 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import Home from './components/home';
 import Hero from './components/hero';
-import Nav from './components/nav';
+import Home from './components/home';
 import ItemView from './containers/list_item_view';
+import HowWorks from './components/how';
 
 const App = () => (
   <div>
-    <Nav />
     <Hero />
+    <HowWorks/>
     <Route exact path="/" component={Home} />
     <Route exact path="/view/:name" component={ItemView} />
   </div>

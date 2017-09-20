@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <meta http-equiv="x-ua-compatible" content="ie=edge" />
-  <title>React ExpressJS</title>
+  <title>GenZ</title>
   <meta name="description" content="" />
 
   <meta name="Robots" content="INDEX,ALL" />
@@ -32,6 +32,16 @@
     window.__INITIAL_STATE__ = <%- script %>
   </script>
   <script src="/js/index.js"></script>
+  <script>
+    (function() {
+      var burger = document.querySelector('.nav-toggle');
+      var menu = document.querySelector('.nav-menu');
+      burger.addEventListener('click', function() {
+        burger.classList.toggle('is-active');
+        menu.classList.toggle('is-active');
+      });
+    })();
+  </script>
 </body>
 
 </html>

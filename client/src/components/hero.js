@@ -1,37 +1,25 @@
 import React from 'react';
 import Nav from './nav';
-import hireGrad from '../../res/images/hire-grad.gif'
 const Hero = () => (
-    <section className="hero bg block">
-      <div className="hero-body columns">
-        <div className="container">
-          <div className="columns">
-            <div className="column is-8">
-              <h1 className="title color-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit</h1>
-              <h2 className="is-6 color-white">Quacumque enim ingredimur, in aliqua historia vestigium ponimus. Bonum valitudo: miser morbus. Familiares nostros, credo, Sironem dicis et Philodemum, cum optimos viros, tum homines doctissimos.</h2>
-                <div className="block field has-addons">
-                  <p className="control">
-                    <span className="select">
-                      <select>
-                        <option>I am a graduate</option>
-                        <option>I am an employer</option>
-                      </select>
-                    </span>
-                  </p>
-                  <p className="control">
-                    <input type="text" className="input" placeholder="Email address"/>
-                  </p>
-                  <p className="control">
-                    <a href="" className="button is-info">Get started</a>
-                  </p>
-                </div>
-            </div>
-            <div className="column pull-up">
-              <img src={hireGrad} />
-            </div>
-          </div>
-        </div>
+  <section className="hero is-primary is-large header-image">
+    <Nav />
+    <div className="hero-body">
+      <div className="container ">
+        <h1 className="title is-2">
+          Become a professional in the field of your dreams
+        </h1>
+        <h2 className="subtitle is-5">
+          Get in touch with more than 500 companies and institutions looking for your genuis
+        </h2>
+        <p>
+          <a className="button is-outlined">
+            <span>
+              Get started
+            </span>
+          </a>
+        </p>
       </div>
-    </section>
+    </div>
+  </section>
 );
 export default Hero;
