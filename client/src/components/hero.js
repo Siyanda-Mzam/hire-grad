@@ -2,14 +2,14 @@ import React from 'react';
 import Nav from './nav';
 import hireGrad from '../../res/images/hire-grad.gif'
 const Hero = () => (
-    <section className="hero bg">
+    <section className="hero bg block">
       <div className="hero-body columns">
         <div className="container">
           <div className="columns">
             <div className="column is-8">
-              <h1 className="title">Lorem ipsum dolor sit amet, consectetur adipiscing elit</h1>
-              <h2 className="is-10 subtitle">Quacumque enim ingredimur, in aliqua historia vestigium ponimus. Bonum valitudo: miser morbus. Familiares nostros, credo, Sironem dicis et Philodemum, cum optimos viros, tum homines doctissimos.</h2>
-                <div className="field has-addons">
+              <h1 className="title color-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit</h1>
+              <h2 className="is-6 color-white">Quacumque enim ingredimur, in aliqua historia vestigium ponimus. Bonum valitudo: miser morbus. Familiares nostros, credo, Sironem dicis et Philodemum, cum optimos viros, tum homines doctissimos.</h2>
+                <div className="block field has-addons">
                   <p className="control">
                     <span className="select">
                       <select>
