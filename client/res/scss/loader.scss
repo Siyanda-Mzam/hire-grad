@@ -1,53 +1,55 @@
+
+
 .demo {
   position: relative;
   margin: 120px auto;
   width: 150px;
 }
 
-.loader {
+.loads {
   position: absolute;
-  opacity: .7;
+  opacity: .8;
 }
 
-.loader circle {
+.loads circle {
   animation: draw 4s infinite ease-in-out;
   transform-origin: center;
   transform: rotate(-90deg);
 }
 
-.loader-2 circle,
-.loader-6 circle {
+.loads-2 circle,
+.loads-6 circle {
   animation-delay: 1s;
 }
 
-.loader-7 circle {
+.loads-7 circle {
   animation-delay: 2s;
 }
 
-.loader-4 circle,
-.loader-8 circle {
+.loads-4 circle,
+.loads-8 circle {
   animation-delay: 3s;
 }
 
-.loader-3 {
+.loads-3 {
   left: -150px;
   transform: rotateY(180deg);
 }
 
-.loader-6,
-.loader-7,
-.loader-8 {
+.loads-6,
+.loads-7,
+.loads-8 {
   left: -150px;
   transform: rotateX(180deg) rotateY(180deg);
 }
 
-.loader-5 circle {
-  opacity: .2;
+.loads-5 circle {
+  opacity: .7;
 }
 
 @keyframes draw {
   50% {
-    stroke-dashoffset: 0;
+    stroke-dashoffset: -1;
     transform: scale(.5);
   }
 }
