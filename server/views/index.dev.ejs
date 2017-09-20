@@ -26,6 +26,10 @@
   <div id="reactbody">
   </div>
   <script src="/js/index.js"></script>
+  <script
+  src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+  integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g="
+  crossorigin="anonymous"></script>
   <script>
     (function() {
       var burger = document.querySelector('.nav-toggle');
@@ -33,8 +37,36 @@
       burger.addEventListener('click', function() {
         burger.classList.toggle('is-active');
         menu.classList.toggle('is-active');
+        if ($(menu).hasClass("is-active")) {
+          $(".nav").css("background" , "#01192d");
+          $(".nav").css("box-shadow" , "none");
+        }
+        else {
+          $(".nav").css("background" , "transparent");
+          $(".nav").css("box-shadow" , "0 1px 0 rgba(255, 255, 255, 0.2);");
+        }
       });
     })();
+  </script>
+  <script>
+
+  $(document).ready(function(){
+    $(window).scroll(function(){
+    	var scroll = $(window).scrollTop();
+      console.log(scroll);
+      if ($(window).scrollTop() === 0) {
+        $(".nav-menu").removeClass("is-active");
+        $(".nav-toggle").removeClass("is-active");
+      }
+      else if (scroll > 10) {
+  	    $(".nav").css("background" , "#01192d");
+        $(".nav").css("box-shadow" , "none");
+  	  }
+  	  else{
+  		  $(".nav").css("background" , "transparent");
+  	  }
+    });
+  })
   </script>
 </body>
 

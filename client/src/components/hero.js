@@ -6,10 +6,10 @@ const Hero = () => (
     <div className="hero-body">
       <div className="container ">
         <h1 className="title is-2">
-          Become a professional in the field of your dreams
+          Improve your career prospects in the field of your dreams
         </h1>
         <h2 className="subtitle is-5">
-          Get in touch with more than 500 companies and institutions looking for your genuis
+          Sign up and get interview requests from more than 500 companies and institutions with an upfront salary offer.
         </h2>
         <p>
           <a className="button is-outlined">
