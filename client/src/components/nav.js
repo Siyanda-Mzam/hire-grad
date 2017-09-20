@@ -18,14 +18,14 @@ const Nav = () => (
           <a className="nav-item is-active">
             Graduate
           </a>
-          <a className="nav-item">
+          <a href="/employer" className="nav-item">
             Employer
           </a>
           <a className="nav-item">
             Sign In
           </a>
           <span className="nav-item">
-            <a className="button is-info is-outlined is-inverted">
+            <a className="button button is-outlined is-primary">
               <span>Sign Up</span>
             </a>
           </span>

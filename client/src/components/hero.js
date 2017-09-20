@@ -12,7 +12,7 @@ const Hero = () => (
           Sign up and get interview requests from more than 500 companies and institutions with an upfront salary offer.
         </h2>
         <p>
-          <a className="button is-outlined">
+          <a className="button is-outlined is-primary">
             <span>
               Get started
             </span>
