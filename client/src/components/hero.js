@@ -4,7 +4,7 @@ const Hero = () => (
   <section className="hero is-primary is-large header-image">
     <Nav />
     <div className="hero-body">
-      <div className="container ">
+      <div id="hero-text" className="container ">
         <h1 className="title is-2">
           Improve your career prospects in the field of your dreams
         </h1>

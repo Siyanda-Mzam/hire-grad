@@ -38,30 +38,57 @@
   crossorigin="anonymous"></script>
   <script>
     (function() {
-      var burger = document.querySelector('.nav-toggle');
-      var menu = document.querySelector('.nav-menu');
-      burger.addEventListener('click', function() {
-        burger.classList.toggle('is-active');
-        menu.classList.toggle('is-active');
-        $(".nav").css("background" , "#01192d");
-        $(".nav").css("box-shadow" , "none");
-        /*if ($(menu).hasClass("is-active")) {
 
+        /*if ($(menu).hasClass("is-active")) {
+          $(".nav").css("background" , "#01192d");
+          $(".nav").css("box-shadow" , "none");
         }
         else {
           $(".nav").css("background" , "transparent");
           $(".nav").css("box-shadow" , "0 1px 0 rgba(255, 255, 255, 0.2);");
         }*/
       });
-    })();
   </script>
   <script>
-
   $(document).ready(function(){
     var prevScroll = 0;
+    var burger = document.querySelector('.nav-toggle');
+    var menu = document.querySelector('.nav-menu');
+    var distanceScrolled = 0,
+        navHeight = 0,
+        heroTextOffset = 0,
+        threshold = 0,
+        triggerBackgroundColor = 0,
+        distanceScrolledCount = 0;
+    burger.addEventListener('click', function() {
+      burger.classList.toggle('is-active');
+      menu.classList.toggle('is-active');
+    });
+
+
+    // On window scroll
     $(window).scroll(function(){
-    	var scroll = $(window).scrollTop();
-      if (scroll < prevScroll) {
+      navHeight = $(".nav").height();
+      distanceScrolled = $(window).scrollTop() - (navHeight / 7);
+      heroTextOffset = $('#hero-text').offset().top - navHeight;
+      threshold = 0;
+      distanceScrolledCount = heroTextOffset - distanceScrolled;
+
+      if (threshold > distanceScrolledCount) {
+        $(".nav").css("background" , "#01192d");
+        $(".nav").css("transition" , ".5s all");
+        $(".nav").css("box-shadow" , "none");
+      }
+      else {
+        $(".nav").css("background" , "transparent");
+        $(".nav").css("box-shadow", "0 1px 0 rgba(255, 255, 255, 0.2)");
+      }
+
+      if ($(".nav-menu").hasClass("is-active")) {
+          $(".nav-menu").removeClass("is-active");
+          $(".nav-toggle").removeClass("is-active");
+      }
+      /*if (scroll < prevScroll) {
           $(".nav-menu").removeClass("is-active");
           $(".nav-toggle").removeClass("is-active");
           if (scroll <= 5) {
@@ -70,10 +97,10 @@
       }
       else if (scroll > 5) {
         prevScroll = scroll;
-  	    $(".nav").css("background" , "#01192d");
+        $(".nav").css("background" , "#01192d");
         $(".nav").css("transition" , ".8s all");
         $(".nav").css("box-shadow" , "none");
-  	  }
+      }*/
     });
   })
   </script>

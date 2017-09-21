@@ -2,7 +2,7 @@ import React from 'react';
 
 const CompanyList = () => (
   <div className="container section">
-    <div className="hero-cta">
+    <div className="hero-cta pull-up">
       <nav className="container">
         <div className=" has-text-centered">
           <p className="title">Here are a few of the hundreds of institutions that you could get offers from</p>
