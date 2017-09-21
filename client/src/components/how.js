@@ -1,8 +1,8 @@
 import React from 'react';
 
 const HowWorks = () => (
-  <div className="main">
-  <div className="hero-cta">
+  <div className="container section">
+  <div className="">
     <nav className="level">
       <div className="level-item">
         <p className="title">How does it work?</p>
