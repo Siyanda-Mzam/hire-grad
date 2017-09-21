@@ -37,35 +37,36 @@
       burger.addEventListener('click', function() {
         burger.classList.toggle('is-active');
         menu.classList.toggle('is-active');
-        if ($(menu).hasClass("is-active")) {
+        /*if ($(menu).hasClass("is-active")) {
           $(".nav").css("background" , "#01192d");
           $(".nav").css("box-shadow" , "none");
         }
         else {
           $(".nav").css("background" , "transparent");
           $(".nav").css("box-shadow" , "0 1px 0 rgba(255, 255, 255, 0.2);");
-        }
+        }*/
       });
     })();
   </script>
   <script>
 
   $(document).ready(function(){
+    var prevScroll = 0;
     $(window).scroll(function(){
     	var scroll = $(window).scrollTop();
-      if ($(window).scrollTop() === 0) {
+      if (scroll < prevScroll) {
           $(".nav-menu").removeClass("is-active");
           $(".nav-toggle").removeClass("is-active");
+          if (scroll <= 5) {
+            $(".nav").css("background" , "transparent");
+          }
       }
-      else if (scroll > 10) {
+      else if (scroll > 5) {
+        prevScroll = scroll;
   	    $(".nav").css("background" , "#01192d");
         $(".nav").css("transition" , ".8s all");
         $(".nav").css("box-shadow" , "none");
   	  }
-  	  else{
-  		  $(".nav").css("background" , "transparent");
-  	  }
-
     });
   })
   </script>

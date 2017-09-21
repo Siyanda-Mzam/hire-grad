@@ -9,7 +9,7 @@ const HowWorks = () => (
       </div>
     </nav>
   </div>
-  <div className="container">
+  <div className="container section">
 
     <div className="columns">
 
