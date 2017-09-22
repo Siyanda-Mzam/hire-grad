@@ -7,6 +7,7 @@ import Employer from './components/employer';
 import CompanyList from './components/companylist';
 import HowWorks from './components/how';
 import WhyDoIt from './components/why';
+import Footer from './components/footer';
 
 const App = () => (
   <div>
@@ -14,6 +15,7 @@ const App = () => (
     <HowWorks/>
     <CompanyList />
     <WhyDoIt />
+    <Footer />
     <Route exact path="/" component={Home} />
     <Route exact path="/employer" component={Employer} />
     <Route exact path="/view/:name" component={ItemView} />

@@ -9,7 +9,7 @@ const Hero = () => (
           Improve your career prospects in the field of your dreams
         </h1>
         <h2 className="subtitle is-5">
-          Sign up and get interview requests from more than 500 companies and institutions with an upfront salary offer.
+          Sign up and get interview requests from more than 500 institutions with an upfront salary offer.
         </h2>
         <p>
           <a className="button is-outlined is-primary">
