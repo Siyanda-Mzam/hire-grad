@@ -37,24 +37,11 @@
   integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g="
   crossorigin="anonymous"></script>
   <script>
-    (function() {
-
-        /*if ($(menu).hasClass("is-active")) {
-          $(".nav").css("background" , "#01192d");
-          $(".nav").css("box-shadow" , "none");
-        }
-        else {
-          $(".nav").css("background" , "transparent");
-          $(".nav").css("box-shadow" , "0 1px 0 rgba(255, 255, 255, 0.2);");
-        }*/
-      });
-  </script>
-  <script>
   $(document).ready(function(){
-    var prevScroll = 0;
-    var burger = document.querySelector('.nav-toggle');
-    var menu = document.querySelector('.nav-menu');
-    var distanceScrolled = 0,
+    var prevScroll = 0,
+        burger = document.querySelector('.nav-toggle'),
+        menu = document.querySelector('.nav-menu'),
+        distanceScrolled = 0,
         navHeight = 0,
         heroTextOffset = 0,
         threshold = 0,
