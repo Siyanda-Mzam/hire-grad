@@ -16,6 +16,7 @@ router.get('/', (req, res) => {
   */
   const store = createStore(reducers);
 
+  console.log(store);
   /*
       We can dispatch actions from server side as well. This can be very useful if you want
       to inject some initial data into the app. For example, if you have some articles that
@@ -56,7 +57,6 @@ router.get('/', (req, res) => {
   );
 
   const finalState = store.getState();
-
   if (context.url) {
     res.writeHead(301, {
       Location: context.url,
@@ -69,6 +69,8 @@ router.get('/', (req, res) => {
     });
   }
 });
-
+router.get('/employer', (req, res) => {
+  alert("Yo");
+})
 
 export default router;

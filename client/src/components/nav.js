@@ -5,7 +5,7 @@ const Nav = () => (
     <header className="nav">
       <div className="container">
         <div className="nav-left">
-          <a className="nav-item" href="../index.html">
+          <a className="nav-item" href="/">
             <img src="" alt="Logo" />
           </a>
         </div>
@@ -15,7 +15,7 @@ const Nav = () => (
           <span></span>
         </span>
         <div className="nav-right nav-menu">
-          <a className="nav-item is-active">
+          <a href="/" className="nav-item is-active">
             Graduate
           </a>
           <a href="/employer" className="nav-item">

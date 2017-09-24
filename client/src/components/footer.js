@@ -4,8 +4,7 @@ const Footer = () => (
   <footer className="footer">
   <div className="container">
     <div className="content has-text-centered">
-      <p>
-      <div className="container section">
+      <div className="container">
 
         <div className="columns">
 
@@ -26,7 +25,6 @@ const Footer = () => (
 
         </div>
       </div>
-      </p>
       <p>
         <a className="icon" href="https://github.com/jgthms/bulma">
           <i className="fa fa-github"></i>
