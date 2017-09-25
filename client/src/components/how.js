@@ -17,10 +17,10 @@ const HowWorks = () => (
 
       <div className="column is-3">
         <div className="panel">
-          <div className="panel-block section">
+          <div className="panel-block">
             <p className="has-text-centered"><i className="fa fa-id-card-o icon-block"></i></p>
             <br/>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas. Nullam condimentum luctus turpis.</p>
+            <p className="has-text-centered">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas. Nullam condimentum luctus turpis.</p>
             <br/>
 
           </div>
@@ -29,10 +29,10 @@ const HowWorks = () => (
 
       <div className="column is-3">
         <div className="panel">
-          <div className="panel-block section">
+          <div className="panel-block">
             <p className="has-text-centered"><i className="fa fa-calendar-check-o icon-block"></i></p>
             <br/>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas. Nullam condimentum luctus turpis.</p>
+            <p className="has-text-centered">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas. Nullam condimentum luctus turpis.</p>
             <br/>
 
           </div>
@@ -41,10 +41,10 @@ const HowWorks = () => (
 
       <div className="column is-3">
         <div className="panel">
-          <div className="panel-block section">
+          <div className="panel-block">
             <p className="has-text-centered"><i className="fa fa-money icon-block" aria-hidden="true"></i></p>
             <br/>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas. Nullam condimentum luctus turpis.</p>
+            <p className="has-text-centered">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas. Nullam condimentum luctus turpis.</p>
             <br/>
 
           </div>
@@ -53,10 +53,10 @@ const HowWorks = () => (
 
       <div className="column is-3">
         <div className="panel">
-          <div className="panel-block section">
+          <div className="panel-block">
             <p className="has-text-centered"><i className="fa fa-rocket icon-block"></i></p>
             <br/>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas. Nullam condimentum luctus turpis.</p>
+            <p className="has-text-centered">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas. Nullam condimentum luctus turpis.</p>
             <br/>
 
           </div>
