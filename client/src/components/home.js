@@ -1,11 +1,9 @@
 import React from 'react';
-import ListItems from '../containers/list_items';
-import ListItemPreview from '../containers/list_item_preview';
-
 import Hero from './hero';
 import CompanyList from './companylist';
 import HowWorks from './how';
 import WhyDoIt from './why';
+import ApplyNow from './applynow';
 
 const Home = ({category}) => (
   <div>
@@ -13,6 +11,7 @@ const Home = ({category}) => (
     <HowWorks/>
     <CompanyList />
     <WhyDoIt />
+    <ApplyNow />
   </div>
 );
 

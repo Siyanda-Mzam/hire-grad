@@ -36,7 +36,7 @@ module.exports = {
       {
         test: /\.(png|jpg|gif)$/,
         use: [{
-          loader: 'file-loader',
+          loader: 'url-loader',
           options: {
             outputPath: 'images/',
           }
@@ -49,7 +49,8 @@ module.exports = {
             loader: 'url-loader',
             options: {
               limit: 10000,
-              mimetype: 'application/font-woff'
+              mimetype: 'application/font-woff',
+              outputPath: 'fonts/'
             }
           }
         ]
@@ -57,7 +58,12 @@ module.exports = {
       {
         test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
         use: [
-          { loader: 'file-loader' }
+          {
+            loader: 'url-loader',
+            options: {
+              outputPath: './fonts'
+            }
+          }
         ]
       }
     ],

@@ -1,15 +1,18 @@
 import React from 'react';
 
 const CompanyList = () => (
-  <div className="container section">
-    <div className="hero-cta pull-up">
+  <div className="section">
+    <div className="container">
+
+      <div className="hero-cta pull-up">
       <nav className="container">
         <div className=" has-text-centered">
           <p className="title">Here are a few of the hundreds of institutions that you could get offers from</p>
         </div>
       </nav>
-    </div>
-    <div className="container section">
+      </div>
+
+      <div className="container section">
       <div className="columns">
 
         <div className="column is-4">
@@ -89,7 +92,9 @@ const CompanyList = () => (
         </div>
       </div>
       <div className="has-text-centered"><a href="see-all" className="button is-primary is-outlined is-medium">View all companies</a></div>
+      </div>
     </div>
+
   </div>
 );
 

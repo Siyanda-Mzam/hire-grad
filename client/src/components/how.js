@@ -1,17 +1,19 @@
 import React from 'react';
 
 const HowWorks = () => (
-  <div className="container section">
-  <div className="">
+  <div className="section">
+    <div className="container">
+      <div className="">
     <nav className="level">
       <div className="level-item">
         <p className="title">How does it work?</p>
       </div>
     </nav>
-  </div>
-  <div className="container section">
+      </div>
 
-    <div className="columns">
+      <div className="container section">
+
+      <div className="columns">
 
       <div className="column is-3">
         <div className="panel">
@@ -60,8 +62,9 @@ const HowWorks = () => (
           </div>
         </div>
       </div>
+      </div>
+      </div>
     </div>
-  </div>
   </div>
 );
 

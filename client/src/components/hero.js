@@ -6,8 +6,9 @@ class Hero extends Component {
     super();
   }
   render() {
-    const {item} = this.props;
+    const { item } = this.props;
     console.log(this.props);
+
     if (!item) {
       return (<div>Nothing, dude</div>);
     }

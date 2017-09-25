@@ -14,53 +14,21 @@ const Employer = ({item}) => {
   return (
   <div className="">
     <Hero item={item}/>
-    <section className="section columns">
-      <div className="column is-half">
-        <h2 className="title is-4">Access a curated list of graduates looking for work</h2><br/>
-        <h2 className="title is-5">Nullam condimentum</h2>
-        <h3 className="subtitle is-5">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          Aenean efficitur sit amet massa fringilla egestas. Nullam condimentum luctus turpis.
-        </h3>
-        <br/>
-        <h2 className="title is-5">Fringilla elit</h2>
-        <h3 className="subtitle is-5">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          Aenean efficitur sit amet massa fringilla egestas. Nullam condimentum luctus turpis.
-        </h3>
-      </div>
-      <div className="column is-half">
+    <div className="">
+      <div className="section">
+        <div className="container">
         <div className="content">
-            <div className="card-image">
-              <figure className="">
-                <img src="https://placehold.it/320x280" alt="Image" />
-              </figure>
-            </div>
+        <h1>Access a curated list of graduates</h1>
+        <br />
+        <h4><strong>Only the best</strong></h4>
+        <p>Our team curates the graduates who apply to GenZ and you’ll only see top candidates.</p>
+        <br/>
+        <h4><strong>Ready to move</strong></h4>
+        <p>Discover talented graduates ready to grow their careers</p>
+        </div>
         </div>
       </div>
-    </section>
-
-    <section className="columns section">
-    <div className="column is-half container">
-      <div className="content">
-          <div className="card-image">
-            <figure className="">
-                <img src="https://placehold.it/320x280" alt="Image" />
-            </figure>
-          </div>
-      </div>
     </div>
-      <div className="column is-half section">
-        <h2 className="title is-4">Make insightful hiring decisions</h2>
-        <p></p>
-        <p className="subtitle is-5">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          Aenean efficitur sit amet massa fringilla egestas. Nullam condimentum luctus turpis.
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          Aenean efficitur sit amet massa fringilla egestas. Nullam condimentum luctus turpis.
-        </p>
-      </div>
-    </section>
   </div>
   );
 
