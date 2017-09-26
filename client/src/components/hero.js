@@ -8,12 +8,10 @@ class Hero extends Component {
   }
   render() {
     const { item } = this.props;
-    console.log(this.props);
-
+    const classes = "hero is-primary is-large header-image " + item.classImage;
     if (!item) {
       return (<div><Loader/></div>);
     }
-    const classes = "hero is-primary is-large header-image " + item.classImage;
     return (
       <section className={classes}>
         <Nav />

@@ -15,7 +15,7 @@ const Employer = ({item, howItWorks}) => {
   return (
   <div className="">
     <Hero item={item}/>
-      <div className="section">
+    <div className="section">
         <div className="container">
           <div className="columns">
             <div className="column is-7 is-half content">
@@ -87,9 +87,9 @@ const Employer = ({item, howItWorks}) => {
             </div>
           </div>
         </div>
-      </div>
+    </div>
 
-      <div className="section grey-band">
+    <div className="section grey-band">
         <div className="container">
           <div className="columns">
             <div className="column is-5 is-half">
@@ -118,10 +118,11 @@ const Employer = ({item, howItWorks}) => {
             </div>
           </div>
         </div>
-      </div>
+    </div>
 
-      <HowWorks howItWorks={howItWorks}/>
-      <div className="section grey-band">
+    <HowWorks howItWorks={howItWorks}/>
+
+    <div className="section grey-band">
         <div className="container">
           <div className="tile is-ancestor">
             <div className="tile is-parent container">
@@ -147,8 +148,9 @@ const Employer = ({item, howItWorks}) => {
             </div>
           </div>
         </div>
-      </div>
-      <ApplyNow applynow={item}/>
+    </div>
+
+    <ApplyNow applynow={item}/>
   </div>
   );
 
