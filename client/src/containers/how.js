@@ -10,7 +10,7 @@ import HowWorks from '../components/how';
 function mapStateToProps(state) {
   console.log(state);
   return {
-    item: true,
+    how: state.list.items.HOW,
   };
 }
 

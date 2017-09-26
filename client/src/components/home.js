@@ -5,13 +5,13 @@ import HowWorks from './how';
 import WhyDoIt from './why';
 import ApplyNow from './applynow';
 
-const Home = ({category}) => (
+const Home = ({category, howItWorks}) => (
   <div>
     <Hero item={category}/>
-    <HowWorks/>
+    <HowWorks howItWorks={howItWorks}/>
     <CompanyList />
     <WhyDoIt />
-    <ApplyNow />
+    <ApplyNow applynow={category}/>
   </div>
 );
 

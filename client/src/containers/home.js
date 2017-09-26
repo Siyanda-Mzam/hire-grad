@@ -9,6 +9,7 @@ Whenever this list changes, any component that is using this list of item will r
  */
 const mapStateToProps = state => ({
   category: state.list.items.EMPLOYEE,
+  howItWorks: state.list.items.HOW.EMPLOYEE
 });
 
 /*

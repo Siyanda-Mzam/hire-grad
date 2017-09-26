@@ -6,7 +6,7 @@ import WhyDoIt from './why';
 import ApplyNow from './applynow';
 
 
-const Employer = ({item}) => {
+const Employer = ({item, howItWorks}) => {
   if (!item) {
     return (
       <div><Loader/></div>
@@ -120,7 +120,7 @@ const Employer = ({item}) => {
         </div>
       </div>
 
-      <HowWorks />
+      <HowWorks howItWorks={howItWorks}/>
       <div className="section grey-band">
         <div className="container">
           <div className="tile is-ancestor">
@@ -148,7 +148,7 @@ const Employer = ({item}) => {
           </div>
         </div>
       </div>
-      <ApplyNow />
+      <ApplyNow applynow={item}/>
   </div>
   );
 

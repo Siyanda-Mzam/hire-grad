@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Nav from './nav';
+import Loader from './loader';
 
 class Hero extends Component {
   constructor() {
@@ -10,7 +11,7 @@ class Hero extends Component {
     console.log(this.props);
 
     if (!item) {
-      return (<div>Nothing, dude</div>);
+      return (<div><Loader/></div>);
     }
     const classes = "hero is-primary is-large header-image " + item.classImage;
     return (
@@ -19,7 +20,7 @@ class Hero extends Component {
         <div className="hero-body">
           <div id="hero-text" className="container ">
             <h1 className="title is-2">
-              {item.name}
+              {item.heroTitle}
             </h1>
             <h2 className="subtitle is-5">
               {item.description}
