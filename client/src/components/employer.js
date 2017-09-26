@@ -3,6 +3,7 @@ import Hero from './hero';
 import HowWorks from '../containers/how';
 import Loader from './loader';
 import WhyDoIt from './why';
+import ApplyNow from './applynow';
 
 
 const Employer = ({item}) => {
@@ -87,6 +88,67 @@ const Employer = ({item}) => {
           </div>
         </div>
       </div>
+
+      <div className="section grey-band">
+        <div className="container">
+          <div className="columns">
+            <div className="column is-5 is-half">
+              <div className="media-content">
+                <p className="title is-4 has-text-centered">Competing offers</p>
+                <span className="media-details has-text-centered">
+                  <p>BSc. Mathematics</p>
+                  <p>R15 000/month</p>
+                  <br/>
+                  <p>Hons Sociology </p>
+                  <p>R25 000/month</p>
+                  <br/>
+                  <p>M.A Physics</p>
+                  <p>R50 000/month</p>
+                </span>
+              </div>
+            </div>
+            <div className="column is-7">
+              <div className="content">
+                <p className="title is-3">Make hiring decisions with insight</p>
+                <p className="subtitle">GenZ makes the hiring process transparent.
+                  You’re able to see what each candidate is interested in doing next,
+                  their preferred salary and even competing offers from other companies.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <HowWorks />
+      <div className="section grey-band">
+        <div className="container">
+          <div className="tile is-ancestor">
+            <div className="tile is-parent container">
+              <article className="tile is-child notification columns">
+                <div className="column is-7 has-text-centered">
+                  <div className="centered column is-3 navy-band">
+                    <div className="">
+                      <p className="title is-1">10%</p>
+                      <p className="subtitle is-6">success fee</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="column is-5">
+                  <p className="title">Pricing</p>
+                  <div className="content">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Proin ornare magna eros, eu pellentesque tortor vestibulum ut.
+                    Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+      <ApplyNow />
   </div>
   );
 

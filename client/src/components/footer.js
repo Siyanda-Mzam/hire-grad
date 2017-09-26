@@ -9,18 +9,18 @@ const Footer = () => (
         <div className="columns">
 
           <div className="column is-3">
-            <p><strong>Graduate</strong></p>
+            <p className="is-white-text"><strong>Graduate</strong></p>
           </div>
           <div className="column is-3">
-            <p><strong>Employer</strong></p>
-          </div>
-
-          <div className="column is-3">
-            <p><strong>GenZ</strong></p>
+            <p className="is-white-text"><strong>Employer</strong></p>
           </div>
 
           <div className="column is-3">
-            <p><strong>Follow Us</strong></p>
+            <p className="is-white-text"><strong>GenZ</strong></p>
+          </div>
+
+          <div className="column is-3">
+            <p className="is-white-text"><strong>Follow Us</strong></p>
           </div>
 
         </div>
