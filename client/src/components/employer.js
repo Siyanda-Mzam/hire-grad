@@ -130,7 +130,7 @@ const Employer = ({item, howItWorks}) => {
                 <div className="column is-7 has-text-centered">
                   <div className="centered column is-3 navy-band">
                     <div className="">
-                      <p className="title is-1">10%</p>
+                      <p className="title is-1">12%</p>
                       <p className="subtitle is-6">success fee</p>
                     </div>
                   </div>
@@ -138,11 +138,9 @@ const Employer = ({item, howItWorks}) => {
 
                 <div className="column is-5">
                   <p className="title">Pricing</p>
-                  <div className="content">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Proin ornare magna eros, eu pellentesque tortor vestibulum ut.
-                    Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.
-                  </div>
+                    <p className="subtitle is-5">Signing up for GenZ is free.
+                    If you hire someone through GenZ we charge 12% of first year salary.
+                    If things do not work out with the graduate in the first 3 months, we will give you the entire fee back.</p>
                 </div>
               </article>
             </div>

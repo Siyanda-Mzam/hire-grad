@@ -8,7 +8,6 @@ import HowWorks from '../components/how';
  Whenever this list changes, any component that is using this list of item will re-render.
  */
 function mapStateToProps(state) {
-  console.log(state);
   return {
     how: state.list.items.HOW,
   };

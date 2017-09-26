@@ -15,7 +15,7 @@ router.get('/', (req, res) => {
     http://redux.js.org/docs/recipes/ServerRendering.html
   */
   const store = createStore(reducers);
-
+  console.log("The store ");
   console.log(store);
   /*
       We can dispatch actions from server side as well. This can be very useful if you want
@@ -69,8 +69,5 @@ router.get('/', (req, res) => {
     });
   }
 });
-router.get('/employer', (req, res) => {
-  alert("Yo");
-})
 
 export default router;

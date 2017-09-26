@@ -8,7 +8,6 @@ import Hero from '../components/hero';
  Whenever this list changes, any component that is using this list of item will re-render.
  */
 function mapStateToProps(state) {
-  console.log(state);
   return {
     item: state.list.items.EMPLOYEE,
   };
