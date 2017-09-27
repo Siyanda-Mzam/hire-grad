@@ -38,7 +38,8 @@ module.exports = {
         use: [{
           loader: 'url-loader',
           options: {
-            outputPath: 'images/',
+            emitFile: true,
+            outputPath: './images/'
           }
         }]
       },
@@ -50,7 +51,7 @@ module.exports = {
             options: {
               limit: 10000,
               mimetype: 'application/font-woff',
-              outputPath: 'fonts/'
+              outputPath: './fonts/'
             }
           }
         ]
@@ -61,7 +62,7 @@ module.exports = {
           {
             loader: 'url-loader',
             options: {
-              outputPath: './fonts'
+              outputPath: './fonts/'
             }
           }
         ]

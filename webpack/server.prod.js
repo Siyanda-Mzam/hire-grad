@@ -30,11 +30,12 @@ module.exports = {
         test: /\.(png|jpg|gif)$/,
         use: [
           {
-            loader: 'file-loader',
+            loader: 'url-loader',
             options: {
-              outputPath: 'images/',
-              emitFile: false,
+              emitFile: true,
+              outputPath: './images/'
             }
+
           }
         ]
       },
@@ -53,7 +54,12 @@ module.exports = {
       {
         test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
         use: [
-          { loader: 'file-loader' }
+          {
+            loader: 'file-loader',
+            options: {
+              outputPath: './fonts/'
+            },
+          }
         ]
       }
     ],

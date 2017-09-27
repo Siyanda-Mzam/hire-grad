@@ -1,5 +1,6 @@
 export default {
   EMPLOYER : {
+    type: "employer",
     heroTitle: "Find top graduates to join your team",
     description: "GenZ is a recruitment marketplace to hire the best South African graduates",
     start: "Get started",
@@ -8,6 +9,7 @@ export default {
     apply: "Apply now"
   },
   EMPLOYEE : {
+    type: "employee",
     heroTitle: "Improve your career prospects in the field of your dreams",
     description: "Sign up and get interview requests with an upfront salary offer, from more than 500 institutions.",
     start: "Get started",
