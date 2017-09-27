@@ -1,5 +1,26 @@
 import React from 'react';
 
+const listCompanies = () => {
+  const companies = [],
+        companiesPerRow = 4;
+  for (let i = 0; i < companiesPerRow; i++) {
+    companies.push(
+      <div className="column is-3">
+        <div className="card">
+          <a href="/somewhere">
+            <div className="card-image">
+              <figure className="image is-square">
+                <img src="https://placehold.it/1280x960" alt="Image" />
+              </figure>
+            </div>
+          </a>
+        </div>
+      </div>
+    );
+  }
+  return companies;
+}
+
 const CompanyList = () => (
   <div className="section">
     <div className="container">
@@ -11,85 +32,13 @@ const CompanyList = () => (
         </div>
       </nav>
       </div>
-
       <div className="container section">
       <div className="columns">
-
-        <div className="column is-4">
-        <div className="card">
-          <a href="/somewhere">
-            <div className="card-image">
-              <figure className="image is-square">
-                <img src="https://placehold.it/1280x960" alt="Image" />
-              </figure>
-            </div>
-          </a>
-        </div>
-        </div>
-
-        <div className="column is-4">
-        <div className="card">
-          <a href="/somewhere">
-            <div className="card-image">
-              <figure className="image is-square">
-                <img src="https://placehold.it/1280x960" alt="Image" />
-              </figure>
-            </div>
-          </a>
-        </div>
-        </div>
-
-        <div className="column is-4">
-        <div className="card">
-          <a href="/somewhere">
-            <div className="card-image">
-              <figure className="image is-square">
-                <img src="https://placehold.it/1280x960" alt="Image" />
-              </figure>
-            </div>
-          </a>
-        </div>
-        </div>
-
+        {listCompanies()}
       </div>
 
       <div className="columns">
-
-        <div className="column is-4">
-        <div className="card">
-          <a href="/somewhere">
-            <div className="card-image">
-              <figure className="image is-square">
-                <img src="https://placehold.it/1280x960" alt="Image" />
-              </figure>
-            </div>
-          </a>
-        </div>
-        </div>
-
-        <div className="column is-4">
-        <div className="card">
-          <a href="/somewhere">
-            <div className="card-image">
-              <figure className="image is-square">
-                <img src="https://placehold.it/1280x960" alt="Image" />
-              </figure>
-            </div>
-          </a>
-        </div>
-        </div>
-
-        <div className="column is-4">
-        <div className="card">
-          <a href="/somewhere">
-            <div className="card-image">
-              <figure className="image is-square">
-                <img src="https://placehold.it/1280x960" alt="Image" />
-              </figure>
-            </div>
-          </a>
-        </div>
-        </div>
+        {listCompanies()}
       </div>
       <div className="has-text-centered"><a href="see-all" className="button is-primary is-outlined is-medium">View all companies</a></div>
       </div>
