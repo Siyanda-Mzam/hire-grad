@@ -21,7 +21,8 @@ const WhyDoIt = () => (
             </h1>
             <p></p>
             <h2 className="subtitle is-5">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas. Nullam condimentum luctus turpis.
+              GenZ links you to hundreds of institutions seeking to employ graduates.
+              Suitabable institutions find suitable graduates through a simple recruitment process.
             </h2>
             <p></p>
             <h1 className="title is-4">
@@ -29,7 +30,8 @@ const WhyDoIt = () => (
             </h1>
             <p></p>
             <h2 className="subtitle is-5">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas. Nullam condimentum luctus turpis.
+              Institutions interested in you will send you an interview request with salary and role information
+              for you to consider before continuing with the process.
             </h2>
           </div>
 
