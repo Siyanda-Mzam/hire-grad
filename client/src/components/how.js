@@ -18,7 +18,7 @@ class HowWorks extends Component {
     const renderedApplicationSteps = [];
     for (let i = 0; i < applicationSteps.length; i++) {
       renderedApplicationSteps.push(
-        <div className="column is-3">
+        <div key={Math.random() + i / 4 } className="column is-3">
           <div className="panel">
             <div className="panel-block">
               <p className="has-text-centered"><i className={applicationStepsIcons[i]}></i></p>

@@ -5,7 +5,7 @@ const listCompanies = () => {
         companiesPerRow = 4;
   for (let i = 0; i < companiesPerRow; i++) {
     companies.push(
-      <div className="column is-3">
+      <div key={Math.random() + i / 4 } className="column is-3">
         <div className="card">
           <a href="/somewhere">
             <div className="card-image">
