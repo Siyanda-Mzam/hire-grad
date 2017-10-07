@@ -14,7 +14,7 @@ export default {
     description: "Sign up and get interview requests with an upfront salary offer, from more than 500 institutions.",
     start: "Get started",
     classImage: "header-image-graduate",
-    ready: "Ready to find your job?",
+    ready: "Ready for your job to find you?",
     apply: "Apply now"
   },
   HOW : {

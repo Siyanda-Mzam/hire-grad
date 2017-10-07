@@ -38,7 +38,7 @@ const Employer = ({item, howItWorks}) => {
                     </figure>
                   </div>
                   <div className="media-content">
-                    <p className="title is-4">Morongoa Masebe</p>
+                    <p className="title is-4">Brand New</p>
                     <p className="subtitle is-6">M.A. Political Studies</p>
                     <span className="media-details">
                     <table className="table is-narrow">
@@ -92,8 +92,8 @@ const Employer = ({item, howItWorks}) => {
     <div className="section grey-band">
         <div className="container">
           <div className="columns">
-            <div className="column is-5 is-half">
-              <div className="media-content">
+            <div className="column">
+              <div className="media-content box column is-6">
                 <p className="title is-4 has-text-centered">Competing offers</p>
                 <span className="media-details has-text-centered">
                   <p>BSc. Mathematics</p>

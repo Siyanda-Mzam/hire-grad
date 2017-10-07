@@ -8,7 +8,7 @@ import {
 import { AppContainer } from 'react-hot-loader';
 import reducers from './reducers/index';
 import App from './app';
-
+import register from './config/serviceWorker.js'
 
 /*
 Here we are getting the initial state injected by the server. See routes/index.js for more details
@@ -34,6 +34,7 @@ const render = (Component) => {
 };
 
 render(App);
+register();
 
 if (module.hot) {
   module.hot.accept('./app', () => {
@@ -42,6 +43,8 @@ if (module.hot) {
     render(nextApp);
   });
 }
+
+
 
 // module.hot.accept('./reducers', () => {
 //   // eslint-disable-next-line
