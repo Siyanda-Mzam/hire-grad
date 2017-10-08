@@ -1,8 +1,8 @@
 import React from 'react';
 
-const Nav = () => (
+const Nav = ({navStyle}) => (
   <div className="hero-head">
-    <header className="nav">
+    <header className={navStyle ? navStyle + " nav" : "nav"}>
       <div className="container">
         <div className="nav-left">
           <a className="nav-item" href="/">
@@ -25,7 +25,7 @@ const Nav = () => (
             Sign In
           </a>
           <span className="nav-item">
-            <a className="button button is-outlined is-primary">
+            <a href="/sign-up" className="button button is-outlined is-primary">
               <span>Sign Up</span>
             </a>
           </span>
