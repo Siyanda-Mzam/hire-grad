@@ -15,7 +15,7 @@ export default class SignUp extends Component {
       <div className="columns is-vcentered">
         <div className="column is-4 is-offset-4">
         <br/><br/><br/><br/><br/>
-          <h1 className="title">
+          <h1 id="hero-text" className="title">
             Welcome to the future
           </h1>
           <div className="box">
@@ -28,14 +28,12 @@ export default class SignUp extends Component {
               <input className="input" type="text" placeholder="bnew@example.org"/>
             </p>
             <label className="label">I am</label>
-            <p className="control">
-            <div className="select stretch-to-fit">
+            <div className="control select stretch-to-fit">
               <select className="">
                 <option className="input">a graduate</option>
                 <option>an employer</option>
               </select>
             </div>
-            </p>
             <hr/>
             <label className="label">Password</label>
             <p className="control">
