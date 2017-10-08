@@ -7,9 +7,6 @@ export default class SignUp extends Component {
       backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.49), rgba(0, 0, 0, 0.72)),\
       url(" + SignUpBackgroundImage + ")"
     }
-    const bgCol = {
-      backgroundImage: "#01192d !important"
-    }
     return (
       <section className="hero is-fullheight is-dark is-bold">
       <Nav navStyle={"sign-up-nav-background-color"}/>
@@ -22,7 +19,7 @@ export default class SignUp extends Component {
             Welcome to the future
           </h1>
           <div className="box">
-            <label className="label">Name</label>
+            <label className="label">Full Name</label>
             <p className="control">
               <input className="input" type="text" placeholder="Brand New" />
             </p>
@@ -50,14 +47,11 @@ export default class SignUp extends Component {
             </p>
             <hr/>
             <p className="control">
-              <button className="button is-primary">Register</button>
-              <button className="button is-default">Cancel</button>
+              <button className="button is-primary">Let us do this</button>
             </p>
           </div>
           <p className="has-text-centered">
-            <a href="/sign-in">Login</a>
-            |
-            <a href="#">Need help?</a>
+            <a href="/sign-in">If you already have an account click here to sign in</a>
           </p>
         </div>
       </div>

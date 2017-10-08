@@ -7,7 +7,7 @@ const ApplyNow = ({ applynow }) => (
         <p className="title">{applynow.ready}</p>
       </div>
       <div className="has-text-centered section">
-        <a className="button is-primary is-outlined is-medium">{applynow.apply}</a>
+        <a href="/sign-up" className="button is-primary is-outlined is-medium">{applynow.apply}</a>
       </div>
     </nav>
   </section>

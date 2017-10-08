@@ -34,7 +34,7 @@ class Hero extends Component {
               {item.description}
             </h2>
             <p>
-              <a className="button is-outlined is-primary">
+              <a href="/sign-up" className="button is-outlined is-primary">
                 <span>
                   {item.start}
                 </span>
