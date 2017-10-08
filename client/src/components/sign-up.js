@@ -14,7 +14,7 @@ export default class SignUp extends Component {
     <div className="container">
       <div className="columns is-vcentered">
         <div className="column is-4 is-offset-4">
-        <br/>
+        <br/><br/><br/><br/><br/>
           <h1 className="title">
             Welcome to the future
           </h1>

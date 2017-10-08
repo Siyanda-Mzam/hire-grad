@@ -21,7 +21,7 @@ const Nav = ({navStyle}) => (
           <a href="/employer" className="nav-item">
             Employer
           </a>
-          <a className="nav-item">
+          <a href="/sign-in" className="nav-item">
             Sign In
           </a>
           <span className="nav-item">
