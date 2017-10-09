@@ -5,6 +5,7 @@ import Employer from './containers/employer';
 import SignUp from './containers/sign-up';
 import Footer from './components/footer';
 import SignIn from './containers/sign-in';
+import Authorization from './components/candidate';
 
 const App = () => (
   <div>

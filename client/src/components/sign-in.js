@@ -1,14 +1,41 @@
 import React, { Component } from 'react';
 import SignInImage from '../../res/images/signup.png';
 import Nav from './nav';
+import Authorization from './candidate';
+import Employer from './employer';
+
 export default class SignIn extends Component {
+
+  constructor() {
+    super();
+    this.state = {
+      email: '',
+      password: ''
+    }
+  }
+  signIn(e) {
+    e.preventDefault();
+    Authorization(Employer, [this.state.email, this.state.password, 'role']);
+    window.location = "/profile";
+    return true
+  }
+  getEmailText(e) {
+    this.setState({
+      email: e.target.value
+    })
+  }
+  getPasswordText(e) {
+    this.setState({
+      password: e.target.value
+    })
+  }
   render() {
     const bg = {
       backgroundImage: "url( " + SignInImage + ")"
     }
     return (
       <div>
-        <Nav navStyle={"sign-up-nav-background-color"}/>
+        <Nav navStyle="sign-up-nav-background-color"/>
         <div className="login-wrapper columns hero-banner-fit">
           <div className="column is-8 is-hidden-mobile hero-banner">
             <section className="hero is-fullheight" style={bg}>
@@ -33,19 +60,19 @@ export default class SignIn extends Component {
                       </h1>
                       <div className="login-form">
                         <p className="control has-icon has-icon-right">
-                          <input className="input email-input" type="text" placeholder="bnew@example.org"/>
+                          <input className="input email-input" type="text" placeholder="bnew@example.org" onChange={(e) => this.getEmailText(e)}/>
                           <span className="icon user">
                             <i className="fa fa-user"></i>
                           </span>
                         </p>
                         <p className="control has-icon has-icon-right">
-                          <input className="input password-input" type="password" placeholder="●●●●●●●"/>
+                          <input className="input password-input" type="password" placeholder="●●●●●●●" onChange={(e) => this.getPasswordText(e)}/>
                           <span className="icon user">
                             <i className="fa fa-lock"></i>
                           </span>
                         </p>
                         <p className="control login">
-                          <button className="button is-success is-outlined is-large is-fullwidth">Sign In</button>
+                          <button className="button is-success is-outlined is-large is-fullwidth" onClick={(e) => this.signIn(e)}>Sign In</button>
                         </p>
                       </div>
                       <div className="section forgot-password">
