@@ -16,6 +16,10 @@ export default (state = LISTS, action) => {
       const returnVal = { ...state, items: nextItems };
       return returnVal;
     }
+    case LIST_ACTIONS.LOGGED_IN:
+      return Object.assign({}, state, {loggedIn: true, shouldRedirect: true})
+    case LIST_ACTIONS.LOGGED_FAILED:
+      return Object.assign({}, state, {loggedIn: false, shouldRedirect: false})    
     default:
       return state;
   }

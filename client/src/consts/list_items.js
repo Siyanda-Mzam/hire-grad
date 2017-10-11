@@ -30,5 +30,7 @@ export default {
       interview: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas. Nullam condimentum luctus turpis.",
       grow: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas. Nullam condimentum luctus turpis.",
     }
-  }
+  },
+  loggedIn: false,
+  shouldRedirect: false
 };

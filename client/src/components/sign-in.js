@@ -16,7 +16,7 @@ export default class SignIn extends Component {
   signIn(e) {
     e.preventDefault();
     Authorization(Employer, [this.state.email, this.state.password, 'role']);
-    window.location = "/profile";
+  //  window.location = "/profile";
     return true
   }
   getEmailText(e) {
