@@ -1,7 +1,30 @@
 import React, { Component } from 'react';
 import SignUpBackgroundImage from '../../res/images/signup.png';
 import Nav from './nav';
+import fire from '../config/firebase';
+
 export default class SignUp extends Component {
+
+  constructor() {
+    super();
+    this.state = {
+      full_name: '',
+      email: '',
+      role: '',
+      password: '',
+    }
+  }
+  signUp(e) {
+    e.preventDefault();
+    var ref = fire.database().ref("/");
+    var usersRef = ref.child("users");
+    usersRef.push({
+
+        name: this.state.full_name,
+        email: this.state.email,
+        password: this.state.password
+});
+  }
   render() {
     const style = {
       backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.49), rgba(0, 0, 0, 0.72)),\
@@ -21,11 +44,11 @@ export default class SignUp extends Component {
           <div className="box">
             <label className="label">Full Name</label>
             <p className="control">
-              <input className="input" type="text" placeholder="Brand New" />
+              <input onChange={(e) => this.setState({ full_name: e.target.value })} className="input" type="text" placeholder="Brand New" />
             </p>
             <label className="label">Email</label>
             <p className="control">
-              <input className="input" type="text" placeholder="bnew@example.org"/>
+              <input onChange={(e) => this.setState({ email: e.target.value })} className="input" type="text" placeholder="bnew@example.org"/>
             </p>
             <label className="label">I am</label>
             <div className="control select stretch-to-fit">
@@ -37,7 +60,7 @@ export default class SignUp extends Component {
             <hr/>
             <label className="label">Password</label>
             <p className="control">
-              <input className="input" type="password" placeholder="●●●●●●●"/>
+              <input onChange={(e) => this.setState({ password: e.target.value })} className="input" type="password" placeholder="●●●●●●●"/>
             </p>
             <label className="label">Confirm Password</label>
             <p className="control">
@@ -45,7 +68,7 @@ export default class SignUp extends Component {
             </p>
             <hr/>
             <p className="control">
-              <button className="button is-primary">Let us do this</button>
+              <button onClick={(e) => this.signUp(e)} className="button is-primary">Let us do this</button>
             </p>
           </div>
           <p className="has-text-centered">

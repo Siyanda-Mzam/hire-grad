@@ -3,6 +3,8 @@ import SignInImage from '../../res/images/signup.png';
 import Nav from './nav';
 import Authorization from './candidate';
 import Employer from './employer';
+import fire from '../config/firebase';
+
 
 export default class SignIn extends Component {
 
@@ -12,11 +14,13 @@ export default class SignIn extends Component {
       email: '',
       password: ''
     }
+
+
   }
   signIn(e) {
     e.preventDefault();
-    Authorization(Employer, [this.state.email, this.state.password, 'role']);
-    window.location = "/profile";
+    //Authorization(Employer, [this.state.email, this.state.password, 'role']);
+    //window.location = "/profile";
     return true
   }
   getEmailText(e) {
