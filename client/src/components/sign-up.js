@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import SignUpBackgroundImage from '../../res/images/signup.png';
 import Nav from './nav';
 import fire from '../config/firebase';
+import PropTypes from 'prop-types';
 import  { Redirect } from 'react-router-dom'
 
 export default class SignUp extends Component {
@@ -13,7 +14,8 @@ export default class SignUp extends Component {
       email: '',
       role: '',
       password: '',
-      isLoggedIn: false
+      isLoggedIn: false,
+      user_key: ''
     }
   }
   signUp(e) {
@@ -27,16 +29,17 @@ export default class SignUp extends Component {
     });
     if (result.key) {
       this.setState({
-        isLoggedIn: true
+        isLoggedIn: true,
+        user_key: result.key
       })
     }
   }
   render() {
     if (!this.state.isLoggedIn) {
       const style = {
-      backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.49), rgba(0, 0, 0, 0.72)),\
-      url(" + SignUpBackgroundImage + ")"
-    }
+        backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.49), rgba(0, 0, 0, 0.72)),\
+        url(" + SignUpBackgroundImage + ")"
+      }
       return (
       <section className="hero is-fullheight is-dark is-bold">
         <Nav navStyle={"sign-up-nav-background-color"}/>
@@ -110,7 +113,7 @@ export default class SignUp extends Component {
     }
     else {
       return (
-        <Redirect to='/dashboard'  />
+        <Dashboard user_key={this.state.user_key}/>
       );
     }
   }
