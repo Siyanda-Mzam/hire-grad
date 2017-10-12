@@ -6,6 +6,7 @@ import SignUp from './containers/sign-up';
 import Footer from './components/footer';
 import SignIn from './containers/sign-in';
 import Authorization from './components/candidate';
+import Dashboard from './components/dashboard';
 
 const App = () => (
   <div>
@@ -13,6 +14,7 @@ const App = () => (
     <Route exact path="/employer" component={Employer} />
     <Route exact path="/sign-up" component={SignUp} />
     <Route exact path="/sign-in" component={SignIn} />
+    <Route exact path="/dashboard" component={Dashboard} />
     <Footer />
   </div>
 );

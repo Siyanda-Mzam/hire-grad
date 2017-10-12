@@ -113,7 +113,13 @@ export default class SignUp extends Component {
     }
     else {
       return (
-        <Dashboard user_key={this.state.user_key}/>
+
+        <Redirect to={{
+          pathname: "/dashboard",
+          state: {
+            data: this.state.user_key
+          }
+        }} />
       );
     }
   }
