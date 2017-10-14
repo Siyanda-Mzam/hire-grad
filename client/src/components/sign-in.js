@@ -21,6 +21,21 @@ export default class SignIn extends Component {
     e.preventDefault();
     //Authorization(Employer, [this.state.email, this.state.password, 'role']);
     //window.location = "/profile";
+    let ref = fire.database().ref("/").child("users");
+    ref.orderByChild("email")
+      .equalTo(this.state.email)
+      .on("child_added", snapshot => {
+        if (snapshot.val().password === this.state.password) {
+          this.setState({
+            hasReceivedData: true,
+            databaseSnapshot: snapshot.val()
+          })
+          alert("Yey")
+        }
+        else {
+          alert("NOOO");
+        }
+    });
     return true
   }
   getEmailText(e) {

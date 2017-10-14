@@ -117,7 +117,8 @@ export default class SignUp extends Component {
         <Redirect to={{
           pathname: "/dashboard",
           state: {
-            data: this.state.user_key
+            data: this.state.user_key,
+            email: this.state.email
           }
         }} />
       );

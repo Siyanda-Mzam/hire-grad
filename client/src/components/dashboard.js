@@ -1,25 +1,41 @@
 import React, { Component } from 'react';
+import fire from '../config/firebase';
+
 
 class Dashboard extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      hasReceivedData: false
+      hasReceivedData: false,
+      databaseSnapshot: null
     }
   }
+  componentDidMount(props) {
+    let ref = fire.database().ref("/").child("users");
+    ref.orderByChild("email")
+      .equalTo(this.props.history.location.state.email)
+      .on("child_added", snapshot => {
+      this.setState({
+        hasReceivedData: true,
+        databaseSnapshot: snapshot.val()
+      })
+    });
+  }
   render() {
-    const props = this.props.history.location.state;
-    if (this.state.hasReceivedData) {
+    const props = this.props.history.location;
+    if (!this.state.hasReceivedData) {
       return (
-        <div>
-          <div>{this.props.user_key}</div>
-          <div>{props.data}</div>
-        </div>
+        <div>Loading</div>
       );
     }
     else {
       return (
-        <div>Loading</div>
+        <div>
+          <div>{props.state.data}</div>
+          <div>{this.state.databaseSnapshot.name}</div>
+          <div>{this.state.databaseSnapshot.email}</div>
+          <div>{this.state.databaseSnapshot.password}</div>
+        </div>
       );
     }
   }
