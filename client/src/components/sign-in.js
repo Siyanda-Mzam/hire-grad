@@ -3,6 +3,9 @@ import SignInImage from '../../res/images/signup.png';
 import Nav from './nav';
 import Authorization from './candidate';
 import Employer from './employer';
+import fire from '../config/firebase';
+import  { Redirect } from 'react-router-dom'
+
 
 export default class SignIn extends Component {
 
@@ -10,13 +13,33 @@ export default class SignIn extends Component {
     super();
     this.state = {
       email: '',
-      password: ''
+      password: '',
+      isLoggedIn: false,
+      hasReceivedData: false,
+      databaseSnapshot: null
     }
+
+
   }
   signIn(e) {
     e.preventDefault();
-    Authorization(Employer, [this.state.email, this.state.password, 'role']);
-    window.location = "/profile";
+    //Authorization(Employer, [this.state.email, this.state.password, 'role']);
+    //window.location = "/profile";
+    let ref = fire.database().ref("/").child("users");
+    ref.orderByChild("email")
+      .equalTo(this.state.email)
+      .on("child_added", snapshot => {
+        if (snapshot.val().password === this.state.password) {
+          this.setState({
+            hasReceivedData: true,
+            databaseSnapshot: snapshot.val(),
+            isLoggedIn: true
+          })
+        }
+        else {
+          alert("NOOO");
+        }
+    });
     return true
   }
   getEmailText(e) {
@@ -30,10 +53,11 @@ export default class SignIn extends Component {
     })
   }
   render() {
-    const bg = {
+    if (!this.state.isLoggedIn) {
+      const bg = {
       backgroundImage: "url( " + SignInImage + ")"
     }
-    return (
+      return (
       <div>
         <Nav navStyle="sign-up-nav-background-color"/>
         <div className="login-wrapper columns hero-banner-fit">
@@ -88,6 +112,15 @@ export default class SignIn extends Component {
           </div>
         </div>
       </div>
+    );
+    }
+    return (
+      <Redirect to={{
+        pathname: "/dashboard",
+        state: {
+          email: this.state.email
+        }
+      }} />
     );
   }
 }
