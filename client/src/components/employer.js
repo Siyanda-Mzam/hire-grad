@@ -93,7 +93,7 @@ const Employer = ({item, howItWorks}) => {
         <div className="container">
           <div className="columns">
             <div className="column">
-              <div className="media-content box column is-6">
+              <div className="media-content box column is-6 float-right-relatively">
                 <p className="title is-4 has-text-centered">Competing offers</p>
                 <span className="media-details has-text-centered">
                   <p>BSc. Mathematics</p>
