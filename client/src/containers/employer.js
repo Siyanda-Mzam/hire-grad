@@ -10,7 +10,8 @@ Whenever this list changes, any component that is using this list of item will r
  */
 const mapStateToProps = state => ({
   item: state.list.items.EMPLOYER,
-  howItWorks: state.list.items.HOW.EMPLOYER
+  howItWorks: state.list.items.HOW.EMPLOYER,
+  user: state.user.person_info.name
 });
 
 /*

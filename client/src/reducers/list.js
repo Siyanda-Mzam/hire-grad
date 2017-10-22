@@ -1,7 +1,7 @@
 import { LIST_ACTIONS } from '../consts/action_types';
-import { LISTS } from '../consts/default_state';
+import { PAGE_CONTENT_OBJECT } from '../consts/default_state';
 
-export default (state = LISTS, action) => {
+export default (state = PAGE_CONTENT_OBJECT, action) => {
   switch (action.type) {
     case LIST_ACTIONS.ITEM_PREVIEW:
       return { ...state, itemPreview: state.items[action.name.toUpperCase()] };

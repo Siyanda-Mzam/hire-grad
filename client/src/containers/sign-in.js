@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import { login, loggingIn, isLoggedIn } from '../actions/user_actions';
 import SignIn from '../components/sign-in';
 
 /*
@@ -9,7 +10,8 @@ Whenever this list changes, any component that is using this list of item will r
  */
 const mapStateToProps = state => ({
   category: state.list.items.EMPLOYEE,
-  howItWorks: state.list.items.HOW.EMPLOYEE
+  howItWorks: state.list.items.HOW.EMPLOYEE,
+  isLoggingIn: state.user.session_status.isLoggingIn
 });
 
 /*
@@ -17,8 +19,11 @@ This is a redux specific function.
 http://redux.js.org/docs/api/bindActionCreators.html
  */
 const mapDispatchToProps = dispatch => ({
-  previewItem: (name) => {
-    dispatch(previewItem(name));
+  login: (credentials) => {
+    dispatch(login(credentials));
+  },
+  loggingIn: (isLoggingIn) => {
+    dispatch(loggingIn(isLoggingIn));
   },
 });
 

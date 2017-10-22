@@ -6,7 +6,7 @@ import WhyDoIt from './why';
 import ApplyNow from './applynow';
 
 
-const Employer = ({item, howItWorks}) => {
+const Employer = ({item, howItWorks, user}) => {
   if (!item) {
     return (
       <div><Loader/></div>
