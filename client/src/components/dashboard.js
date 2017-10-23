@@ -52,102 +52,105 @@ class Dashboard extends Component {
     }
     else {
       return (
-
         <div>
-        <Nav navStyle={"sign-up-nav-background-color"}/>
-        <br/><br/>
-        <div className="section head ">
-          <div className="container">
-            <div className="card">
-              <div className="card-content">
-                <div className="media columns position-media">
-                  <div className="column is-2">
-                    <figure className="image">
-                      <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image" />
-                    </figure>
-                  </div>
-                  <div className="media-content column is-7 center-xy-absolutely">
-                    <p className="title is-4">{this.state.databaseSnapshot.name}</p>
-                    <p className="">
-                      <span className="icon "><i className="fa fa-map-marker"></i></span> Johannesburg
-                      <i className="fa fa-pencil push-right"></i>
-                    </p>
-                    <p className="">
-                      <span className="icon "><i className="fa fa-graduation-cap"></i></span>Rhodes University
-                      <i className="fa fa-pencil push-right"></i>
-                    </p>
-                    <p className="">
-                      <i className="fa fa-money"></i> R34 000/month
-                      <i className="fa fa-pencil push-right"></i>
-                    </p>
+          <Nav navStyle={"sign-up-nav-background-color"}/>
+          <br/><br/>
+          <div className="section head ">
+            <div className="container">
+              <div className="card">
+                <div className="card-content">
+                  <div className="media columns position-media">
+                    <div className="column is-2">
+                      <figure className="image">
+                        <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image" />
+                      </figure>
+                    </div>
+                    <div className="media-content column is-7 center-xy-absolutely">
+                      <p className="title is-4">{this.state.databaseSnapshot.name}</p>
+                      <p className="">
+                        <span className="icon "><i className="fa fa-map-marker"></i></span> Johannesburg
+                        <i className="fa fa-pencil push-right"></i>
+                      </p>
+                      <p className="">
+                        <span className="icon "><i className="fa fa-graduation-cap"></i></span>Rhodes University
+                        <i className="fa fa-pencil push-right"></i>
+                      </p>
+                      <p className="">
+                        <i className="fa fa-money"></i> R34 000/month
+                        <i className="fa fa-pencil push-right"></i>
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <div className="section summary ">
+          <div className="section summary ">
           <div className="container">
-          <div className="card">
-            <header className="card-header">
-              <p className="card-header-title">
-                Summary
-              </p>
-              <a href="#" className="card-header-icon" aria-label="more options">
-                <span className="icon">
-                  <a>Edit</a>
-                </span>
-              </a>
-            </header>
-            <div className="card-content">
-              <div className="content">
-                <p className="title is-5">About me</p>
-                <p className="about_me">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.</p>
-                <p className="title is-5">How I stay on top of my game</p>
-                <p className="about_me">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.</p>
-                <p className="title is-5">The future of my career path</p>
-                <p className="about_me">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.</p>
+            <div className="card">
+              <header className="card-header">
+                <p className="card-header-title">
+                  Summary
+                </p>
+                <a href="#" className="card-header-icon" aria-label="more options">
+                  <span className="icon">
+                    <a>Edit</a>
+                  </span>
+                </a>
+              </header>
+              <div className="card-content">
+                <div className="content">
+                  <p className="title is-5">About me</p>
+                  <p className="about_me">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.</p>
+                  <p className="title is-5">How I stay on top of my game</p>
+                  <p className="about_me">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.</p>
+                  <p className="title is-5">The future of my career path</p>
+                  <p className="about_me">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.</p>
+                </div>
               </div>
+              <footer className="card-footer">
+                {
+                  this.state.isEdit ? <a href="#" className="card-footer-item">
+                  Save</a> : ''
+                }
+              </footer>
             </div>
-            <footer className="card-footer">
-              {this.state.isEdit ? <a href="#" className="card-footer-item">Save</a> : ''}
-            </footer>
           </div>
           </div>
-        </div>
 
-        <div className="section roles-interestedin">
+          <div className="section roles-interestedin">
           <div className="container">
-          <div className="card">
-            <header className="card-header">
-              <p className="card-header-title">
-                Roles I am interested in
-              </p>
-            </header>
-            <div className="card-content">
-              <div className="content">
-
+            <div className="card">
+              <header className="card-header">
+                <p className="card-header-title">
+                  Roles I am interested in
+                </p>
+              </header>
+              <div className="card-content">
+                <div className="content">
+                </div>
               </div>
+              <footer className="card-footer">
+                {
+                  this.state.isEdit ? <a href="#" className="card-footer-item">
+                    Save</a> : ''
+                }
+              </footer>
             </div>
-            <footer className="card-footer">
-              {this.state.isEdit ? <a href="#" className="card-footer-item">Save</a> : ''}
-            </footer>
           </div>
           </div>
-        </div>
 
-
-        <div className="section skills">
+          <div className="section skills">
           <div className="container">
-          <div className="card">
-            <header className="card-header">
-              <p className="card-header-title">
-                Skills
-              </p>
-            </header>
-            <div className="card-content">
-              <div className="content">
+            <div className="card">
+              <header className="card-header">
+                <p className="card-header-title">
+                  Skills
+                </p>
+              </header>
+              <div className="card-content">
+                <div className="content">
                   <div className="tags">
                     <span className="tag is-medium is-success">
                       Numerical Methods
@@ -197,9 +200,9 @@ class Dashboard extends Component {
             </footer>
           </div>
           </div>
-        </div>
+          </div>
 
-        <div className="section roadmap">
+          <div className="section roadmap">
           <div className="container">
           <div className="card">
             <header className="card-header">
@@ -295,11 +298,10 @@ class Dashboard extends Component {
           <footer className="card-footer">
             {this.state.isEdit ? <a href="#" className="card-footer-item">Save</a> : ''}
           </footer>
+          </div>
         </div>
-
       </div>
-    </div>
-  </div>
+        </div>
       );
     }
   }

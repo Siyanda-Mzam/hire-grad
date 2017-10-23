@@ -1,24 +1,31 @@
 import { connect } from 'react-redux';
+import { login, loggingIn, isLoggedIn } from '../actions/user_actions';
 import SignIn from '../components/sign-in';
 
 /*
 This is a redux specific function.
-What is does is: It gets the state specified in here from the global redux state.
-For example, here we are retrieving the list of items from the redux store.
-Whenever this list changes, any component that is using this list of item will re-render.
+
+Gets the global redux state and passes it, as props, to the wrapped components
  */
 const mapStateToProps = state => ({
   category: state.list.items.EMPLOYEE,
-  howItWorks: state.list.items.HOW.EMPLOYEE
+  howItWorks: state.list.items.HOW.EMPLOYEE,
+  isLoggingIn: state.user.session_status.isLoggingIn,
+  isLoggedIn: state.user.session_status.isLoggedIn
 });
 
 /*
 This is a redux specific function.
 http://redux.js.org/docs/api/bindActionCreators.html
+
+Gets the redux dispatch function and passes it, as props, to the wrapped component
  */
 const mapDispatchToProps = dispatch => ({
-  previewItem: (name) => {
-    dispatch(previewItem(name));
+  login: (credentials) => {
+    dispatch(login(credentials));
+  },
+  loggingIn: (isLoggingIn) => {
+    dispatch(loggingIn(isLoggingIn));
   },
 });
 
