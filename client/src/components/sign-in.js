@@ -27,13 +27,13 @@ export default class SignIn extends Component {
     if (this.props.isLoggingIn) {
       console.log("User is busy logging in");
       this.setState({
-        isLoggedIn: this.props.isLoggingIn
+        isLoggedIn: this.props.isLoggedIn
       })
+      this.props.login({
+        email:this.state.email,
+        password: this.state.password
+      });
     }
-    this.props.login({
-      email:this.state.email,
-      password: this.state.password
-    });
     return true
   }
   getEmailText(e) {

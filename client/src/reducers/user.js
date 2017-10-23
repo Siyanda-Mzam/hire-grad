@@ -15,7 +15,7 @@ export default (state = CANDIDATE, action) => {
               ...state.session_status,
               isLoggingIn: false,
               isLoggedIn: true,
-            },
+            };
             state.person_info = {
               ...state.person_info,
               name: user.name.split(' ')[0], //First name
