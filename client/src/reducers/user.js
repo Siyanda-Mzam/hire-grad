@@ -3,6 +3,7 @@ import { CANDIDATE } from '../consts/default_state';
 import fire from '../config/firebase';
 
 export default (state = CANDIDATE, action) => {
+  let newState = {...state};
   switch (action.type) {
     case USER_ACTIONS.LOGIN: {
       let ref = fire.database().ref("/").child("users");
@@ -11,13 +12,13 @@ export default (state = CANDIDATE, action) => {
         .on("child_added", snapshot => {
           let user = snapshot.val();
           if (user.password === action.credentials.password) {
-            state.session_status = {
-              ...state.session_status,
+            newState.session_status = {
+              ...newState.session_status,
               isLoggingIn: false,
               isLoggedIn: true,
             };
-            state.person_info = {
-              ...state.person_info,
+            newState.person_info = {
+              ...newState.person_info,
               name: user.name.split(' ')[0], //First name
               surname: user.name.split(' ')[1], //Last Name
               email: user.email,
@@ -31,16 +32,24 @@ export default (state = CANDIDATE, action) => {
       break;
     }
     case USER_ACTIONS.LOGGING_IN: {
-      console.log("Logging in pending...", state.session_status.isLoggingIn);
-      state.session_status = {
-        ...state.session_status,
+      console.log("Logging in pending...", newState.session_status.isLoggingIn);
+      newState.session_status = {
+        ...newState.session_status,
         isLoggingIn: true
       }
-      console.log("Logging in pending...", state.session_status.isLoggingIn);
+      console.log("Logging in pending...", newState.session_status.isLoggingIn);
       break;
     }
-    case USER_ACTIONS.LOGGED_IN:
+    case USER_ACTIONS.LOGGED_IN: {
+      if (newState.session_status.isLoggedIn) {
+        newState.session_status = {
+          ...newState.session_status,
+          isLoggingIn: false,
+          isLoggedIn: true,
+        }
+      }
       break;
+    }
     case USER_ACTIONS.LOGOUT:
       break;
     case USER_ACTIONS.LOGGING_OUT:
@@ -52,7 +61,7 @@ export default (state = CANDIDATE, action) => {
     case USER_ACTIONS.SIGNING_UP:
       break;
     default:
-      return state;
+      return newState;
   }
-  return state;
+  return newState;
 }

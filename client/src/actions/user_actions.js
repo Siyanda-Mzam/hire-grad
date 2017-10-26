@@ -10,9 +10,9 @@ export const loggingIn = (isLoggingIn) => ({
   isLoggingIn
 })
 
-export const loggedIn = (user) => ({
+export const loggedIn = (email) => ({
   type: USER_ACTIONS.LOGGED_IN,
-  user
+  email
 })
 
 export const logout = (user) => ({

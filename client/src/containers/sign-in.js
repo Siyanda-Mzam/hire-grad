@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { login, loggingIn, isLoggedIn } from '../actions/user_actions';
+import { login, loggingIn, loggedIn, } from '../actions/user_actions';
 import SignIn from '../components/sign-in';
 
 /*
@@ -26,6 +26,9 @@ const mapDispatchToProps = dispatch => ({
   },
   loggingIn: (isLoggingIn) => {
     dispatch(loggingIn(isLoggingIn));
+  },
+  loggedIn: (email) => {
+    dispatch(loggedIn(email));
   },
 });
 

@@ -24,16 +24,15 @@ export default class SignIn extends Component {
   signIn(e) {
     e.preventDefault();
     this.props.loggingIn(true);
-    if (this.props.isLoggingIn) {
-      console.log("User is busy logging in");
-      this.setState({
-        isLoggedIn: this.props.isLoggedIn
-      })
-      this.props.login({
-        email:this.state.email,
-        password: this.state.password
-      });
-    }
+    this.props.login({
+      email:this.state.email,
+      password: this.state.password
+    });
+    // Set timeout because the above call queries firebase asynchronously
+    // Prolly not the best solution because some networks are much slower.
+    setTimeout(() => {
+      this.props.loggedIn(this.state.email);
+    }, 3000);
     return true
   }
   getEmailText(e) {
@@ -47,7 +46,7 @@ export default class SignIn extends Component {
     })
   }
   render() {
-    if (!this.state.isLoggedIn) {
+    if (!this.props.isLoggedIn && !this.props.isLoggingIn) {
       const bg = {
       backgroundImage: "url( " + SignInImage + ")"
     }
@@ -108,7 +107,7 @@ export default class SignIn extends Component {
       </div>
     );
     }
-    else if (this.state.isLoggedIn) {
+    else if (this.props.isLoggingIn && !this.props.isLoggedIn) {
       return (
         <Loader/>
       )

@@ -95,7 +95,7 @@ class Dashboard extends Component {
                 </p>
                 <a href="#" className="card-header-icon" aria-label="more options">
                   <span className="icon">
-                    <a>Edit</a>
+                    Edit
                   </span>
                 </a>
               </header>
