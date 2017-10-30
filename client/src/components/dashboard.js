@@ -9,9 +9,13 @@ class Dashboard extends Component {
     this.state = {
       hasReceivedData: false,
       databaseSnapshot: null,
-      isEdit: false
+      isEdit: false,
+      isReadOnly: true,
+      info: null
 
     }
+    this.editProfile = this.editProfile.bind(this);
+    this.saveProfileInfo = this.saveProfileInfo.bind(this);
   }
   componentDidMount(props) {
     let ref = fire.database().ref("/").child("users");
@@ -23,6 +27,14 @@ class Dashboard extends Component {
         databaseSnapshot: snapshot.val()
       })
     });
+  }
+  editProfile = () => {
+    this.setState({
+      isReadOnly: !this.state.isReadOnly
+    });
+  }
+  saveProfileInfo = () => {
+    this.editProfile();
   }
   render() {
 
@@ -93,26 +105,31 @@ class Dashboard extends Component {
                 <p className="card-header-title">
                   Summary
                 </p>
-                <a href="#" className="card-header-icon" aria-label="more options">
-                  <span className="icon">
-                    Edit
+                {
+                  this.state.isReadOnly &&
+                  <span className="card-header-icon" aria-label="more options">
+                    <span className="button is-primary is-outlined" onClick={this.editProfile}>
+                       Edit
+                    </span>
                   </span>
-                </a>
+                }
               </header>
               <div className="card-content">
                 <div className="content">
                   <p className="title is-5">About me</p>
-                  <p className="about_me">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.</p>
+                  <textarea readOnly={this.state.isReadOnly} autoFocus={!this.state.isReadOnly} className="about_me">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.</textarea>
                   <p className="title is-5">How I stay on top of my game</p>
-                  <p className="about_me">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.</p>
+                  <textarea readOnly={this.state.isReadOnly} autoFocus={!this.state.isReadOnly} className="about_me">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.</textarea>
                   <p className="title is-5">The future of my career path</p>
-                  <p className="about_me">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.</p>
+                  <textarea readOnly={this.state.isReadOnly} autoFocus={!this.state.isReadOnly} className="about_me">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.</textarea>
                 </div>
               </div>
               <footer className="card-footer">
                 {
-                  this.state.isEdit ? <a href="#" className="card-footer-item">
-                  Save</a> : ''
+                  !this.state.isReadOnly ?
+                    <span
+                      className="card-footer-item button is-primary is-outlined"
+                      onClick={this.saveProfileInfo}>Save</span> : ''
                 }
               </footer>
             </div>

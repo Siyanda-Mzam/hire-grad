@@ -24,6 +24,7 @@ export default (state = CANDIDATE, action) => {
               email: user.email,
               role:user.role
             }
+            console.log(newState.person_info.name);
           }
           else {
             alert("NOOO");
@@ -32,12 +33,10 @@ export default (state = CANDIDATE, action) => {
       break;
     }
     case USER_ACTIONS.LOGGING_IN: {
-      console.log("Logging in pending...", newState.session_status.isLoggingIn);
       newState.session_status = {
         ...newState.session_status,
         isLoggingIn: true
       }
-      console.log("Logging in pending...", newState.session_status.isLoggingIn);
       break;
     }
     case USER_ACTIONS.LOGGED_IN: {

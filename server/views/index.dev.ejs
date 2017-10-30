@@ -52,25 +52,29 @@
     // On window scroll
     $(window).scroll(function(){
       navHeight = $(".nav").height();
-      distanceScrolled = $(window).scrollTop() - (navHeight / 7);
-      heroTextOffset = $('#hero-text').offset().top - navHeight;
-      threshold = 0;
-      distanceScrolledCount = heroTextOffset - distanceScrolled;
+      heroText = $('#hero-text');
+      if (heroText.length) {
+        distanceScrolled = $(window).scrollTop() - (navHeight / 7);
+        heroTextOffset = heroText.offset().top - navHeight;
+        threshold = 0;
+        distanceScrolledCount = heroTextOffset - distanceScrolled;
 
-      if (threshold > distanceScrolledCount) {
-        $(".nav").css("background" , "#01192d");
-        $(".nav").css("transition" , ".5s all");
-        $(".nav").css("box-shadow" , "none");
-      }
-      else {
-        $(".nav").css("background" , "transparent");
-        $(".nav").css("box-shadow", "0 1px 0 rgba(255, 255, 255, 0.2)");
+        if (threshold > distanceScrolledCount) {
+          $(".nav").css("background" , "#01192d");
+          $(".nav").css("transition" , ".5s all");
+          $(".nav").css("box-shadow" , "none");
+        }
+        else {
+          $(".nav").css("background" , "transparent");
+          $(".nav").css("box-shadow", "0 1px 0 rgba(255, 255, 255, 0.2)");
+        }
+
+        if ($(".nav-menu").hasClass("is-active")) {
+            $(".nav-menu").removeClass("is-active");
+            $(".nav-toggle").removeClass("is-active");
+        }
       }
 
-      if ($(".nav-menu").hasClass("is-active")) {
-          $(".nav-menu").removeClass("is-active");
-          $(".nav-toggle").removeClass("is-active");
-      }
       /*if (scroll < prevScroll) {
           $(".nav-menu").removeClass("is-active");
           $(".nav-toggle").removeClass("is-active");
