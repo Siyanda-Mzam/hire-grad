@@ -10,6 +10,7 @@ class Dashboard extends Component {
       hasReceivedData: false,
       databaseSnapshot: null,
       isEdit: false,
+			showBorder: false,
       isReadOnly: true,
       info: null
 
@@ -30,14 +31,17 @@ class Dashboard extends Component {
   }
   editProfile = () => {
     this.setState({
-      isReadOnly: !this.state.isReadOnly
+      isReadOnly: !this.state.isReadOnly,
+			showBorder: !this.state.showBorder
     });
   }
   saveProfileInfo = () => {
     this.editProfile();
   }
   render() {
-
+		const border = {
+			border: this.state.showBorder ? "1px solid" : "none"
+		}
     const props = this.props.history.location;
     if (!this.state.hasReceivedData) {
       return (
@@ -117,11 +121,23 @@ class Dashboard extends Component {
               <div className="card-content">
                 <div className="content">
                   <p className="title is-5">About me</p>
-                  <textarea readOnly={this.state.isReadOnly} autoFocus={!this.state.isReadOnly} className="about_me">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.</textarea>
+                  <textarea style={border} readOnly={this.state.isReadOnly}
+										autoFocus={!this.state.isReadOnly} className="about_me">
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+										Phasellus nec iaculis mauris.
+									</textarea>
                   <p className="title is-5">How I stay on top of my game</p>
-                  <textarea readOnly={this.state.isReadOnly} autoFocus={!this.state.isReadOnly} className="about_me">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.</textarea>
+                  <textarea style={border} readOnly={this.state.isReadOnly}
+										autoFocus={!this.state.isReadOnly} className="about_me">
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+										Phasellus nec iaculis mauris.
+									</textarea>
                   <p className="title is-5">The future of my career path</p>
-                  <textarea readOnly={this.state.isReadOnly} autoFocus={!this.state.isReadOnly} className="about_me">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.</textarea>
+                  <textarea style={border} readOnly={this.state.isReadOnly}
+										autoFocus={!this.state.isReadOnly} className="about_me">
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+										Phasellus nec iaculis mauris.
+									</textarea>
                 </div>
               </div>
               <footer className="card-footer">
