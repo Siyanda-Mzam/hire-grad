@@ -65,7 +65,7 @@ class Dashboard extends Component {
     else {
       return (
         <div>
-          <Nav navStyle={"sign-up-nav-background-color"}/>
+          <Nav navStyle={"sign-up-nav-background-color"} isLoggedIn={this.state.hasReceivedData}/>
           <br/><br/>
           <div className="section head ">
             <div className="container">

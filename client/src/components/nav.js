@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Nav = ({navStyle}) => (
+const Nav = ({navStyle, isLoggedIn}) => (
   <div className="hero-head">
     <header className={navStyle ? navStyle + " nav" : "nav"}>
       <div className="container">
@@ -21,14 +21,25 @@ const Nav = ({navStyle}) => (
           <a href="/employer" className="nav-item">
             Employer
           </a>
-          <a href="/sign-in" className="nav-item">
-            Sign In
-          </a>
-          <span className="nav-item">
-            <a href="/sign-up" className="button button is-outlined is-primary">
-              <span>Sign Up</span>
+          { !isLoggedIn ?
+            <a href="/sign-in" className="nav-item">
+              Sign In
+            </a> : <a href="/account" className="nav-item">
+              Account
             </a>
-          </span>
+          }
+          {
+            !isLoggedIn ?
+            <span className="nav-item">
+              <a href="/sign-up" className="button button is-outlined is-primary">
+                <span>Sign Up</span>
+              </a>
+            </span> : <span className="nav-item">
+              <a href="/" className="button button is-outlined is-primary">
+                <span>Sign Out</span>
+              </a>
+            </span>
+          }
         </div>
       </div>
     </header>

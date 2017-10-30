@@ -24,7 +24,7 @@ class Hero extends Component {
     }
     return (
       <section className="hero is-primary is-large header-image" style={style}>
-        <Nav />
+        <Nav isLoggedIn={false}/>
         <div className="hero-body">
           <div id="hero-text" className="container ">
             <h1 className="title is-2">
