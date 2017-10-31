@@ -4,6 +4,7 @@ import fire from '../config/firebase';
 
 export default (state=PROFILE, action) => {
   let newState = { ...state };
+  console.log("Action involved: ", action);
   switch (action.type) {
     case PROFILE_ACTIONS.UPDATE_PROFILE: {
       let ref = fire.database().ref("/").child("users");
@@ -11,7 +12,6 @@ export default (state=PROFILE, action) => {
         .equalTo(action.profileEmail)
         .on("child_added", snapshot => {
           let snapshotData = snapshot.val();
-          console.log(newState);
           newState = {
             ...newState,
             hasReceivedData: true,
@@ -24,28 +24,28 @@ export default (state=PROFILE, action) => {
       });
       break;
     }
-    case PROFILE.SET_ABOUT_ME_TEXT: {
+    case PROFILE_ACTIONS.SET_ABOUT_ME_TEXT: {
       newState = {
         ...newState,
         aboutMeText: action.text
       }
       break;
     }
-    case PROFILE.SET_SKILLS_SHARP_TEXT: {
+    case PROFILE_ACTIONS.SET_SKILLS_SHARP_TEXT: {
       newState = {
         ...newState,
         skillsSharp: action.text
       }
       break;
     }
-    case PROFILE.SET_NEXT_STEPS: {
+    case PROFILE_ACTIONS.SET_NEXT_STEPS: {
       newState = {
         ...newState,
         nextSteps: action.text
       }
       break;
     }
-    case PROFILE.UPDATE_FINISHED: {
+    case PROFILE_ACTIONS.UPDATE_FINISHED: {
       newState = {
         ...newState,
         isUpdateFinished: true,
@@ -53,7 +53,8 @@ export default (state=PROFILE, action) => {
       }
       break;
     }
-    case PROFILE.EDIT_PROFILE: {
+    case PROFILE_ACTIONS.EDIT_PROFILE: {
+      console.log("Edit reducer: ", action);
       newState = {
         ...newState,
         isReadOnly: false,

@@ -25,6 +25,7 @@ export const isUpdateFinished = (predicate) => ({
   predicate
 })
 
-export const editProfile = () => ({
-  type: PROFILE_ACTIONS.EDIT_PROFILE
+export const editProfile = (predicate) => ({
+  type: PROFILE_ACTIONS.EDIT_PROFILE,
+  predicate
 })

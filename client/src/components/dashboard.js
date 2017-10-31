@@ -6,18 +6,15 @@ import Loader from './loader';
 class Dashboard extends Component {
   constructor(props) {
     super(props);
-    this.editProfile = this.editProfile.bind(this);
     this.saveProfileInfo = this.saveProfileInfo.bind(this);
   }
   componentDidMount() {
+    console.log("Does it change: ", this.props.history.location.state.email);
     this.props.updateProfileState(this.props.history.location.state.email);
-    setTimeout(() => this.props.isUpdateFinished(true), 8000);
-  }
-  editProfile = () => {
-    this.props.editProfile();
+    setTimeout(() => this.props.isUpdateFinished(true), 4000);
   }
   saveProfileInfo = () => {
-    this.editProfile();
+    //this.editProfile(true);
     let ref = fire.database().ref("/").child("users").child(this.props.key);
     ref.update({
       aboutMe: this.props.aboutMeText,
@@ -102,7 +99,7 @@ class Dashboard extends Component {
                 {
                   this.props.isReadOnly &&
                   <span className="card-header-icon" aria-label="more options">
-                    <span className="button is-primary is-outlined" onClick={this.editProfile}>
+                    <span className="button is-primary is-outlined" onClick={() => this.props.editProfile(true)}>
                        Edit
                     </span>
                   </span>
@@ -156,8 +153,9 @@ class Dashboard extends Component {
               </div>
               <footer className="card-footer">
                 {
-                  this.props.isEdit ? <a href="#" className="card-footer-item">
-                    Save</a> : ''
+                  this.props.isReadOnly &&
+                   <a href="#" className="card-footer-item">
+                    Save</a>
                 }
               </footer>
             </div>

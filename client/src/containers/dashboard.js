@@ -11,18 +11,8 @@ For example, here we are retrieving the list of items from the redux store.
 Whenever this list changes, any component that is using this list of item will re-render.
  */
 const mapStateToProps = state => ({
-  hasReceivedData: state.profile.hasReceivedData,
-  databaseSnapshot: state.profile.databaseSnapshot,
-  key: state.profile.key,
-  aboutMeText: state.profile.aboutMeText,
-  skillsSharp: state.profile.skillsSharp,
-  nextSteps: state.profile.nextSteps,
-  isUpdateFinished: state.profile.isUpdateFinished,
-  isEdit: state.profile.isEdit,
-  isReadOnly: state.profile.isReadOnly,
-  aboutMeText: state.profile.aboutMeText,
-  skillsSharp: state.profile.skillsSharp,
-  nextSteps: state.profile.nextSteps
+  ...state.profile,
+  databaseSnapshot: state.databaseSnapshot ? state.databaseSnapshot : ""
 });
 
 /*
@@ -45,8 +35,8 @@ const mapDispatchToProps = dispatch => ({
   isUpdateFinished: (predicate) => {
     dispatch(isUpdateFinished(predicate));
   },
-  editProfile: () => {
-    dispatch(editProfile());
+  editProfile: (predicate) => {
+    dispatch(editProfile(predicate));
   }
 });
 
