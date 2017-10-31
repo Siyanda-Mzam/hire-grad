@@ -6,44 +6,34 @@ import Loader from './loader';
 class Dashboard extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      hasReceivedData: false,
-      databaseSnapshot: null,
-      isEdit: false,
-			showBorder: false,
-      isReadOnly: true,
-      info: null
-
-    }
     this.editProfile = this.editProfile.bind(this);
     this.saveProfileInfo = this.saveProfileInfo.bind(this);
   }
-  componentDidMount(props) {
-    let ref = fire.database().ref("/").child("users");
-    ref.orderByChild("email")
-      .equalTo(this.props.history.location.state.email)
-      .on("child_added", snapshot => {
-      this.setState({
-        hasReceivedData: true,
-        databaseSnapshot: snapshot.val()
-      })
-    });
+  componentDidMount() {
+    this.props.updateProfileState(this.props.history.location.state.email);
+    setTimeout(() => this.props.isUpdateFinished(true), 8000);
   }
   editProfile = () => {
-    this.setState({
-      isReadOnly: !this.state.isReadOnly,
-			showBorder: !this.state.showBorder
-    });
+    this.props.editProfile();
   }
   saveProfileInfo = () => {
     this.editProfile();
+    let ref = fire.database().ref("/").child("users").child(this.props.key);
+    ref.update({
+      aboutMe: this.props.aboutMeText,
+      skillsSharp: this.props.skillsSharp,
+      nextSteps: this.props.nextSteps
+    });
+    console.log(this.props.aboutMeText);
+    console.log(this.props.skillsSharp);
+    console.log(this.props.nextSteps);
   }
   render() {
 		const border = {
-			border: this.state.showBorder ? "1px solid" : "none"
+			border: this.props.showBorder ? "1px solid" : "none"
 		}
     const props = this.props.history.location;
-    if (!this.state.hasReceivedData) {
+    if (!this.props.hasReceivedData) {
       return (
 
         <div className="section"><div className="section"><Loader/></div>
@@ -69,7 +59,7 @@ class Dashboard extends Component {
     else {
       return (
         <div>
-          <Nav navStyle={"sign-up-nav-background-color"} isLoggedIn={this.state.hasReceivedData}/>
+          <Nav navStyle={"sign-up-nav-background-color"} isLoggedIn={this.props.hasReceivedData}/>
           <br/><br/>
           <div className="section head ">
             <div className="container">
@@ -82,7 +72,7 @@ class Dashboard extends Component {
                       </figure>
                     </div>
                     <div className="media-content column is-7 center-xy-absolutely">
-                      <p className="title is-4">{this.state.databaseSnapshot.name}</p>
+                      <p className="title is-4">{this.props.databaseSnapshot.name}</p>
                       <p className="">
                         <span className="icon "><i className="fa fa-map-marker"></i></span> Johannesburg
                         <i className="fa fa-pencil push-right"></i>
@@ -110,7 +100,7 @@ class Dashboard extends Component {
                   Summary
                 </p>
                 {
-                  this.state.isReadOnly &&
+                  this.props.isReadOnly &&
                   <span className="card-header-icon" aria-label="more options">
                     <span className="button is-primary is-outlined" onClick={this.editProfile}>
                        Edit
@@ -121,31 +111,31 @@ class Dashboard extends Component {
               <div className="card-content">
                 <div className="content">
                   <p className="title is-5">About me</p>
-                  <textarea style={border} readOnly={this.state.isReadOnly}
-										autoFocus={!this.state.isReadOnly} className="about_me">
-										Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-										Phasellus nec iaculis mauris.
-									</textarea>
+                  <textarea style={border} readOnly={this.props.isReadOnly}
+										autoFocus={!this.props.isReadOnly} className="about_me"
+                    value={this.props.aboutMeText}
+                    onChange={(e) => this.props.setAboutMeText(e.target.value)}
+                  ></textarea>
                   <p className="title is-5">How I stay on top of my game</p>
-                  <textarea style={border} readOnly={this.state.isReadOnly}
-										autoFocus={!this.state.isReadOnly} className="about_me">
-										Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-										Phasellus nec iaculis mauris.
-									</textarea>
+                  <textarea style={border} readOnly={this.props.isReadOnly}
+										autoFocus={!this.props.isReadOnly} className="about_me"
+                    value={this.props.skillsSharp}
+                    onChange={(e) => this.props.setSkillsSharpText(e.target.value)}
+                  ></textarea>
                   <p className="title is-5">The future of my career path</p>
-                  <textarea style={border} readOnly={this.state.isReadOnly}
-										autoFocus={!this.state.isReadOnly} className="about_me">
-										Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-										Phasellus nec iaculis mauris.
-									</textarea>
+                  <textarea style={border} readOnly={this.props.isReadOnly}
+										autoFocus={!this.props.isReadOnly} className="about_me"
+                    value={this.props.nextSteps}
+                    onChange={(e) => this.props.setNextSteps(e.target.value)}
+                  ></textarea>
                 </div>
               </div>
               <footer className="card-footer">
                 {
-                  !this.state.isReadOnly ?
+                  !this.props.isReadOnly &&
                     <span
                       className="card-footer-item button is-primary is-outlined"
-                      onClick={this.saveProfileInfo}>Save</span> : ''
+                      onClick={this.saveProfileInfo}>Save</span>
                 }
               </footer>
             </div>
@@ -166,7 +156,7 @@ class Dashboard extends Component {
               </div>
               <footer className="card-footer">
                 {
-                  this.state.isEdit ? <a href="#" className="card-footer-item">
+                  this.props.isEdit ? <a href="#" className="card-footer-item">
                     Save</a> : ''
                 }
               </footer>
@@ -229,7 +219,7 @@ class Dashboard extends Component {
               </div>
             </div>
             <footer className="card-footer">
-              {this.state.isEdit ? <a href="#" className="card-footer-item">Save</a> : ''}
+              {this.props.isEdit ? <a href="#" className="card-footer-item">Save</a> : ''}
             </footer>
           </div>
           </div>
@@ -329,7 +319,7 @@ class Dashboard extends Component {
             </div>
           </div>
           <footer className="card-footer">
-            {this.state.isEdit ? <a href="#" className="card-footer-item">Save</a> : ''}
+            {this.props.isEdit ? <a href="#" className="card-footer-item">Save</a> : ''}
           </footer>
           </div>
         </div>

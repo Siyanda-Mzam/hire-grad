@@ -6,7 +6,7 @@ import SignUp from './containers/sign-up';
 import Footer from './components/footer';
 import SignIn from './containers/sign-in';
 import Authorization from './components/candidate';
-import Dashboard from './components/dashboard';
+import Dashboard from './containers/dashboard';
 
 const App = () => (
   <div>

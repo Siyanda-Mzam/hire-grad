@@ -28,3 +28,17 @@ export const CANDIDATE = {
     isLoggedOut: CANDIDATE_STATE.isLoggedOut,
   }
 }
+
+export const PROFILE = {
+  hasReceivedData: false,
+  databaseSnapshot: null,
+  isEdit: false,
+  showBorder: false,
+  isReadOnly: true,
+  isUpdateFinished: false,
+  info: null,
+  key: null,
+  aboutMeText: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.',
+  skillsSharp: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.',
+  nextSteps: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.'
+}
