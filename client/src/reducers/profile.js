@@ -4,7 +4,7 @@ import fire from '../config/firebase';
 
 export default (state=PROFILE, action) => {
   let newState = { ...state };
-  console.log("Action involved: ", action);
+  console.log("Action involved: ", state);
   switch (action.type) {
     case PROFILE_ACTIONS.UPDATE_PROFILE: {
       let ref = fire.database().ref("/").child("users");
@@ -12,6 +12,7 @@ export default (state=PROFILE, action) => {
         .equalTo(action.profileEmail)
         .on("child_added", snapshot => {
           let snapshotData = snapshot.val();
+          console.log(snapshot.key);
           newState = {
             ...newState,
             hasReceivedData: true,
@@ -49,7 +50,7 @@ export default (state=PROFILE, action) => {
       newState = {
         ...newState,
         isUpdateFinished: true,
-        hasReceivedData:true
+        hasReceivedData:true,
       }
       break;
     }

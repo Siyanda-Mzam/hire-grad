@@ -11,8 +11,9 @@ For example, here we are retrieving the list of items from the redux store.
 Whenever this list changes, any component that is using this list of item will re-render.
  */
 const mapStateToProps = state => ({
-  ...state.profile,
-  databaseSnapshot: state.databaseSnapshot ? state.databaseSnapshot : ""
+  ...(state.profile),
+  databaseSnapshot: state.profile.databaseSnapshot,
+  key: state.profile.key
 });
 
 /*

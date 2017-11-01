@@ -7,19 +7,28 @@ class Dashboard extends Component {
   constructor(props) {
     super(props);
     this.saveProfileInfo = this.saveProfileInfo.bind(this);
+    this.state = {
+      aboutMeText: '',
+      skillsSharp: '',
+      nextSteps: ''
+    }
   }
   componentDidMount() {
     console.log("Does it change: ", this.props.history.location.state.email);
     this.props.updateProfileState(this.props.history.location.state.email);
     setTimeout(() => this.props.isUpdateFinished(true), 4000);
+    this.setState({
+      key: this.props.key
+    })
   }
   saveProfileInfo = () => {
     //this.editProfile(true);
-    let ref = fire.database().ref("/").child("users").child(this.props.key);
+    console.log(this.props);
+    let ref = fire.database().ref("/").child("users").child(this.state.key);
     ref.update({
-      aboutMe: this.props.aboutMeText,
-      skillsSharp: this.props.skillsSharp,
-      nextSteps: this.props.nextSteps
+      aboutMe: this.state.aboutMeText,
+      skillsSharp: this.state.skillsSharp,
+      nextSteps: this.state.nextSteps
     });
     console.log(this.props.aboutMeText);
     console.log(this.props.skillsSharp);
@@ -110,20 +119,20 @@ class Dashboard extends Component {
                   <p className="title is-5">About me</p>
                   <textarea style={border} readOnly={this.props.isReadOnly}
 										autoFocus={!this.props.isReadOnly} className="about_me"
-                    value={this.props.aboutMeText}
-                    onChange={(e) => this.props.setAboutMeText(e.target.value)}
+                    value={this.props.aboutMeText ? this.props.aboutMeText : this.state.aboutMeText}
+                    onChange={(e) => this.setState({aboutMeText: e.target.value})}
                   ></textarea>
                   <p className="title is-5">How I stay on top of my game</p>
                   <textarea style={border} readOnly={this.props.isReadOnly}
 										autoFocus={!this.props.isReadOnly} className="about_me"
-                    value={this.props.skillsSharp}
-                    onChange={(e) => this.props.setSkillsSharpText(e.target.value)}
+                    value={this.props.skillsSharp ? this.props.skillsSharp : this.state.skillsSharp}
+                    onChange={(e) => this.setState({skillsSharp: e.target.value})}
                   ></textarea>
                   <p className="title is-5">The future of my career path</p>
                   <textarea style={border} readOnly={this.props.isReadOnly}
 										autoFocus={!this.props.isReadOnly} className="about_me"
-                    value={this.props.nextSteps}
-                    onChange={(e) => this.props.setNextSteps(e.target.value)}
+                    value={this.props.nextSteps ? this.props.nextSteps : this.state.nextSteps}
+                    onChange={(e) => this.setState({nextSteps: e.target.value})}
                   ></textarea>
                 </div>
               </div>
