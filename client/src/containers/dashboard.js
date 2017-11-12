@@ -1,7 +1,6 @@
 import { connect } from 'react-redux';
-import { updateProfileState, setAboutMeText,
-  setSkillsSharpText, setNextSteps, isUpdateFinished, editProfile
-} from '../actions/profile_actions';
+import { updateProfileState, isUpdateFinished, editProfile, saveProfileUpdate,
+setAboutMeText, setSkillsSharpText, setNextStepsText} from '../actions/profile_actions';
 import Dashboard from '../components/dashboard';
 
 /*
@@ -11,9 +10,7 @@ For example, here we are retrieving the list of items from the redux store.
 Whenever this list changes, any component that is using this list of item will re-render.
  */
 const mapStateToProps = state => ({
-  ...(state.profile),
-  databaseSnapshot: state.profile.databaseSnapshot,
-  key: state.profile.key
+  ...state.profile,
 });
 
 /*
@@ -23,22 +20,32 @@ http://redux.js.org/docs/api/bindActionCreators.html
 const mapDispatchToProps = dispatch => ({
   updateProfileState: (profileEmail) => {
     dispatch(updateProfileState(profileEmail));
+		dispatch(isUpdateFinished(true));
   },
-  setAboutMeText: (text) => {
-    dispatch(setAboutMeText(text));
-  },
-  setSkillsSharpText: (text) => {
-    dispatch(setSkillsSharpText(text));
-  },
-  setNextSteps: (text) => {
-    dispatch(setNextSteps(text));
-  },
+
   isUpdateFinished: (predicate) => {
     dispatch(isUpdateFinished(predicate));
   },
+
   editProfile: (predicate) => {
     dispatch(editProfile(predicate));
-  }
+  },
+
+	saveProfileUpdate: (summary) => {
+		dispatch(saveProfileUpdate(summary));
+	},
+
+	setAboutMeText: (text) => {
+		dispatch(setAboutMeText(text));
+	},
+
+	setSkillsSharpText: (text) => {
+		dispatch(setSkillsSharpText(text));
+	},
+
+	setNextStepsText: (text) => {
+		dispatch(setNextStepsText(text));
+	},
 });
 
 

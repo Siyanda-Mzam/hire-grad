@@ -4,48 +4,65 @@ import fire from '../config/firebase';
 
 export default (state=PROFILE, action) => {
   let newState = { ...state };
-  console.log("Action involved: ", state);
   switch (action.type) {
+		case PROFILE_ACTIONS.SET_ABOUT_ME_TEXT: {
+			console.log("In set about me: ", action);
+			newState = {
+				...newState,
+				aboutMeText: action.text
+			}
+			break;
+		}
+		case PROFILE_ACTIONS.SET_SKILLS_SHARP_TEXT: {
+			newState = {
+				...newState,
+				skillsSharpText: action.text
+			}
+			break;
+		}
+		case PROFILE_ACTIONS.SET_NEXT_STEPS_TEXT: {
+			newState = {
+				...newState,
+				nextStepsText: action.text
+			}
+			break;
+		}
     case PROFILE_ACTIONS.UPDATE_PROFILE: {
-      let ref = fire.database().ref("/").child("users");
-      ref.orderByChild("email")
-        .equalTo(action.profileEmail)
-        .on("child_added", snapshot => {
-          let snapshotData = snapshot.val();
-          console.log(snapshot.key);
-          newState = {
-            ...newState,
-            hasReceivedData: true,
-            databaseSnapshot: snapshotData,
-            key: snapshot.key,
-            aboutMeText: snapshotData.aboutMe,
-            skillsSharp: snapshotData.skillsSharp,
-            nextSteps: snapshotData.nextSteps
-          }
-      });
+			fire.database()
+			.ref("/")
+			.child("users")
+      .orderByChild("email")
+      .equalTo(action.profileEmail)
+      .on("child_added", snapshot => {
+        let snapshotData = snapshot.val();
+        newState = {
+          ...newState,
+          hasReceivedData: true,
+          databaseSnapshot: snapshotData,
+          userKey: snapshot.key,
+          aboutMeText: snapshotData.aboutMe,
+					nextStepsText: snapshotData.nextSteps,
+          skillsSharpText: snapshotData.skillsSharp,
+        }
+			});
       break;
     }
-    case PROFILE_ACTIONS.SET_ABOUT_ME_TEXT: {
-      newState = {
-        ...newState,
-        aboutMeText: action.text
-      }
-      break;
-    }
-    case PROFILE_ACTIONS.SET_SKILLS_SHARP_TEXT: {
-      newState = {
-        ...newState,
-        skillsSharp: action.text
-      }
-      break;
-    }
-    case PROFILE_ACTIONS.SET_NEXT_STEPS: {
-      newState = {
-        ...newState,
-        nextSteps: action.text
-      }
-      break;
-    }
+		case PROFILE_ACTIONS.SAVE_PROFILE_UPDATE: {
+			fire.database()
+				.ref("/")
+				.child(`users/${action.summary.userKey}`)
+				.update({
+					aboutMe: action.summary.aboutMeText,
+					skillsSharp: action.summary.skillsSharpText,
+					nextSteps: action.summary.nextStepsText,
+				});
+				newState = {
+					...newState,
+					isReadOnly: true,
+					isEdit: false
+				}
+			break;
+		}
     case PROFILE_ACTIONS.UPDATE_FINISHED: {
       newState = {
         ...newState,
@@ -55,16 +72,15 @@ export default (state=PROFILE, action) => {
       break;
     }
     case PROFILE_ACTIONS.EDIT_PROFILE: {
-      console.log("Edit reducer: ", action);
       newState = {
         ...newState,
         isReadOnly: false,
-        isEdit: true,
+        isEdit: action.predicate,
       }
       break;
     }
     default:
-      return newState
+      break
   }
   return newState;
 }

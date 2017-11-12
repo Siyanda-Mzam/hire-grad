@@ -10,8 +10,7 @@ Gets the global redux state and passes it, as props, to the wrapped components
 const mapStateToProps = state => ({
   category: state.list.items.EMPLOYEE,
   howItWorks: state.list.items.HOW.EMPLOYEE,
-  isLoggingIn: state.user.session_status.isLoggingIn,
-  isLoggedIn: state.user.session_status.isLoggedIn
+  ...state.user.session_status
 });
 
 /*
