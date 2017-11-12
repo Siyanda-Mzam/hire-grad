@@ -31,14 +31,14 @@ export const CANDIDATE = {
 
 export const PROFILE = {
   hasReceivedData: false,
-  databaseSnapshot: null,
+  databaseSnapshot: {},
   isEdit: false,
   showBorder: false,
   isReadOnly: true,
   isUpdateFinished: false,
   info: null,
-  key: null,
+  userKey: '',
   aboutMeText: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.',
-  skillsSharp: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.',
-  nextSteps: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.'
+  skillsSharpText: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.',
+  nextStepsText: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.'
 }

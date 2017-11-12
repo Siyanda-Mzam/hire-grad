@@ -4,32 +4,33 @@ import Nav from './nav';
 import Loader from './loader';
 
 class Dashboard extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.saveProfileInfo = this.saveProfileInfo.bind(this);
   }
   componentDidMount() {
-    console.log("Does it change: ", this.props.history.location.state.email);
-    this.props.updateProfileState(this.props.history.location.state.email);
-    setTimeout(() => this.props.isUpdateFinished(true), 4000);
+		let user = localStorage.getItem("user");
+		if (user) {
+			this.props.updateProfileState(user);
+		}
+		else {
+			let userEmail = this.props.history.location.state.email
+			localStorage.setItem("user", userEmail);
+		}
   }
   saveProfileInfo = () => {
-    //this.editProfile(true);
-    let ref = fire.database().ref("/").child("users").child(this.props.key);
-    ref.update({
-      aboutMe: this.props.aboutMeText,
-      skillsSharp: this.props.skillsSharp,
-      nextSteps: this.props.nextSteps
-    });
-    console.log(this.props.aboutMeText);
-    console.log(this.props.skillsSharp);
-    console.log(this.props.nextSteps);
+		let summary = {
+			aboutMeText: this.props.aboutMeText,
+			skillsSharpText: this.props.skillsSharpText,
+			nextStepsText: this.props.nextStepsText,
+			userKey: this.props.userKey,
+		}
+		this.props.saveProfileUpdate(summary);
   }
   render() {
 		const border = {
 			border: this.props.showBorder ? "1px solid" : "none"
 		}
-    const props = this.props.history.location;
     if (!this.props.hasReceivedData) {
       return (
 
@@ -115,15 +116,15 @@ class Dashboard extends Component {
                   ></textarea>
                   <p className="title is-5">How I stay on top of my game</p>
                   <textarea style={border} readOnly={this.props.isReadOnly}
-										autoFocus={!this.props.isReadOnly} className="about_me"
-                    value={this.props.skillsSharp}
+										autoFocus={!this.props.isReadOnly} className="skills_sharp"
+                    value={this.props.skillsSharpText}
                     onChange={(e) => this.props.setSkillsSharpText(e.target.value)}
                   ></textarea>
                   <p className="title is-5">The future of my career path</p>
                   <textarea style={border} readOnly={this.props.isReadOnly}
-										autoFocus={!this.props.isReadOnly} className="about_me"
-                    value={this.props.nextSteps}
-                    onChange={(e) => this.props.setNextSteps(e.target.value)}
+										autoFocus={!this.props.isReadOnly} className="next_steps"
+                    value={this.props.nextStepsText}
+                    onChange={(e) => this.props.setNextStepsText(e.target.value)}
                   ></textarea>
                 </div>
               </div>
