@@ -20,7 +20,6 @@ http://redux.js.org/docs/api/bindActionCreators.html
 const mapDispatchToProps = dispatch => ({
   updateProfileState: (profileEmail) => {
     dispatch(updateProfileState(profileEmail));
-		dispatch(isUpdateFinished(true));
   },
 
   isUpdateFinished: (predicate) => {

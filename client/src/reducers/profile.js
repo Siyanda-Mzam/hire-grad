@@ -66,8 +66,8 @@ export default (state=PROFILE, action) => {
     case PROFILE_ACTIONS.UPDATE_FINISHED: {
       newState = {
         ...newState,
-        isUpdateFinished: true,
-        hasReceivedData:true,
+        isUpdateFinished: action.predicate,
+        hasReceivedData: action.predicate,
       }
       break;
     }
