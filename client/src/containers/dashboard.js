@@ -22,7 +22,7 @@ const mapDispatchToProps = dispatch => ({
     dispatch(updateProfileState(profileEmail));
   },
 
-  isUpdateFinished: (predicate) => {
+  hasUpdatedSuccessfully: (predicate) => {
     dispatch(isUpdateFinished(predicate));
   },
 

@@ -14,17 +14,24 @@ class Dashboard extends Component {
     this.saveProfileInfo = this.saveProfileInfo.bind(this);
   }
   componentDidMount() {
-		let user = localStorage.getItem("user");
+		console.log("Called did mount: ", this.props);
+		let userEmail = this.props.history.location.state.email
+		setTimeout(()=> this.props.updateProfileState(userEmail), 1000);
+		setInterval(()=>
+		{
+			this.props.hasUpdatedSuccessfully(true)
+			if (this.props.isUpdateFinished)
+				console.log("Yes");
+				console.log(this.props)
+		}, 3000);
+		/*let user = localStorage.getItem("user");
 		if (user) {
 			this.props.updateProfileState(user);
-      setTimeout(() => {
-        this.props.isUpdateFinished(true);
-      }, 5000)
 		}
 		else {
 			let userEmail = this.props.history.location.state.email
 			localStorage.setItem("user", userEmail);
-		}
+		}*/
   }
   saveProfileInfo = () => {
 		let summary = {
@@ -36,7 +43,7 @@ class Dashboard extends Component {
 		this.props.saveProfileUpdate(summary);
   }
   render() {
-    if (!this.props.hasReceivedData) {
+    if (!this.props.hasReceivedData && !this.props.isUpdateFinished) {
       return (
         <div className="section">
           <div className="section">
