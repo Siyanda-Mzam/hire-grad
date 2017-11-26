@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { updateProfileState, isUpdateFinished, editProfile, saveProfileUpdate,
-setAboutMeText, setSkillsSharpText, setNextStepsText} from '../actions/profile_actions';
+setAboutMeText, setSkillsSharpText, setNextStepsText, updateProfileAndReport } from '../actions/profile_actions';
 import Dashboard from '../components/dashboard';
 
 /*
@@ -18,31 +18,27 @@ This is a redux specific function.
 http://redux.js.org/docs/api/bindActionCreators.html
  */
 const mapDispatchToProps = dispatch => ({
-  updateProfileState: (profileEmail) => {
-    dispatch(updateProfileState(profileEmail));
+  updateProfileState: profileEmail => {
+    dispatch(updateProfileAndReport(profileEmail));
   },
 
-  hasUpdatedSuccessfully: (predicate) => {
-    dispatch(isUpdateFinished(predicate));
-  },
-
-  editProfile: (predicate) => {
+  editProfile: predicate => {
     dispatch(editProfile(predicate));
   },
 
-	saveProfileUpdate: (summary) => {
+	saveProfileUpdate: summary => {
 		dispatch(saveProfileUpdate(summary));
 	},
 
-	setAboutMeText: (text) => {
+	setAboutMeText: text => {
 		dispatch(setAboutMeText(text));
 	},
 
-	setSkillsSharpText: (text) => {
+	setSkillsSharpText: text => {
 		dispatch(setSkillsSharpText(text));
 	},
 
-	setNextStepsText: (text) => {
+	setNextStepsText: text => {
 		dispatch(setNextStepsText(text));
 	},
 });
