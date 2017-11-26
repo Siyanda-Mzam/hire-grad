@@ -36,8 +36,6 @@ export const PROFILE = {
   showBorder: false,
   isReadOnly: true,
   isUpdateFinished: false,
-  info: null,
-  userKey: '',
   aboutMeText: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.',
   skillsSharpText: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.',
   nextStepsText: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.',

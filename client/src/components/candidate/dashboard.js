@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import fire from '../config/firebase';
-import Nav from './nav';
+import Nav from '../shared/nav';
 import Summary from './summary';
 import RolesInterestedIn from './roles';
 import Header from './head';
 import Skills from './skills';
 import RoadMap from './roadmap';
-import Loader from './loader';
+import Loader from '../shared/loader';
 
 class Dashboard extends Component {
   constructor() {
@@ -14,8 +13,8 @@ class Dashboard extends Component {
     this.saveProfileInfo = this.saveProfileInfo.bind(this);
   }
   componentDidMount() {
-		let userEmail = this.props.history.location.state.email
-		this.props.updateProfileState(userEmail)
+		const userEmail = this.props.history.location.state.email;
+		this.props.updateProfileState(userEmail);
   }
   saveProfileInfo = () => {
 		let summary = {
@@ -23,14 +22,14 @@ class Dashboard extends Component {
 			skillsSharpText: this.props.skillsSharpText,
 			nextStepsText: this.props.nextStepsText,
 			userKey: this.props.history.location.state.email.replace('.', '-'),
-		}
+		};
 		this.props.saveProfileUpdate(summary);
   }
   render() {
     if (!this.props.hasReceivedData && !this.props.isUpdateFinished) {
       return (
         <div className="section">
-          <div className="section">
+          <div className="container section">
             <Loader/>
           </div>
         </div>

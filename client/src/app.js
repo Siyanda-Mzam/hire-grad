@@ -3,9 +3,8 @@ import { Route } from 'react-router-dom';
 import Home from './containers/home';
 import Employer from './containers/employer';
 import SignUp from './containers/sign-up';
-import Footer from './components/footer';
+import Footer from './components/shared/footer';
 import SignIn from './containers/sign-in';
-import Authorization from './components/candidate';
 import Dashboard from './containers/dashboard';
 
 const App = () => (

@@ -48,11 +48,13 @@ export const editProfile = predicate => ({
 })
 
 export const updateProfileAndReport = profileEmail => (dispatch, getState) => {
+	console.log(getState().profile);
+	let email = profileEmail.replace('.', '-');
 	fetch(
-		`https://hire-grad.firebaseio.com/users/${profileEmail.replace('.','-')}.json`)
-		.then(res => res.json())
-		.then(snapshot => {
-			dispatch(updateProfileState(snapshot));
+		`https://hire-grad.firebaseio.com/users/${email}.json`)
+		.then(profileSnapshot => profileSnapshot.json())
+		.then(parsedProfileSnapshot => {
+			dispatch(updateProfileState(parsedProfileSnapshot));
 		})
 		.then(() => dispatch(isUpdateFinished(true)))
 		.catch(error => {

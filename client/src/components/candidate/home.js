@@ -1,9 +1,9 @@
 import React from 'react';
-import Hero from './hero';
+import Hero from '../shared/hero';
 import CompanyList from './companylist';
-import HowWorks from './how';
+import HowWorks from '../shared/how';
 import WhyDoIt from './why';
-import ApplyNow from './applynow';
+import ApplyNow from '../shared/applynow';
 
 const Home = ({category, howItWorks}) => (
   <div>

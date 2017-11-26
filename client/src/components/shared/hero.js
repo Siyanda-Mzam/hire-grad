@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Nav from './nav';
 import Loader from './loader';
-import heroImageGrad from '../../res/images/connectedcity.png';
-import heroImageEmpl from '../../res/images/employers.jpg';
+import heroImageGrad from '../../../res/images/connectedcity.png';
+import heroImageEmpl from '../../../res/images/employers.jpg';
 
 class Hero extends Component {
   constructor() {

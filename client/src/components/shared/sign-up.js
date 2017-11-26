@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import SignUpBackgroundImage from '../../res/images/signup.png';
+import SignUpBackgroundImage from '../../../res/images/signup.png';
 import Nav from './nav';
-import fire from '../config/firebase';
+import fire from '../../config/firebase';
 import PropTypes from 'prop-types';
 import  { Redirect } from 'react-router-dom'
 

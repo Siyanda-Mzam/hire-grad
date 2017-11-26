@@ -10,6 +10,6 @@ export default {
   salary: 55000 ,
   isLoggedIn: false,
   isLoggingIn:false,
-  isLoggedOut:false,
+  isLoggedOut:true,
   isLoggingOut: false
 }

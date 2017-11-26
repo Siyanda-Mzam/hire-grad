@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import SignInImage from '../../res/images/signup.png';
+import SignInImage from '../../../res/images/signup.png';
 import Nav from './nav';
-import Authorization from './candidate';
-import Employer from './employer';
 import Loader from './loader';
 import  { Redirect } from 'react-router-dom'
 
