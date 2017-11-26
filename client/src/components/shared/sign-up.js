@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import SignUpBackgroundImage from '../../res/images/signup.png';
+import SignUpBackgroundImage from '../../../res/images/signup.png';
 import Nav from './nav';
-import fire from '../config/firebase';
+import fire from '../../config/firebase';
 import PropTypes from 'prop-types';
 import  { Redirect } from 'react-router-dom'
 
@@ -35,8 +35,8 @@ export default class SignUp extends Component {
   render() {
     if (!this.props.isLoggedIn) {
       const style = {
-        backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.49), rgba(0, 0, 0, 0.72)),\
-        url(" + SignUpBackgroundImage + ")"
+        backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.49),\
+				rgba(0, 0, 0, 0.72)),url(" + SignUpBackgroundImage + ")"
       }
       return (
       <section className="hero is-fullheight is-dark is-bold">
@@ -56,7 +56,9 @@ export default class SignUp extends Component {
                         className="input"
                         type="text"
                         placeholder="Brand New"
-                        onChange={(e) => this.setState({ full_name: e.target.value })}
+                        onChange={
+													(e) => this.setState({ full_name: e.target.value })
+												}
                       />
                     </p>
                     <label className="label">Email</label>
@@ -66,7 +68,9 @@ export default class SignUp extends Component {
                         className="input"
                         type="text"
                         placeholder="bnew@example.org"
-                        onChange={(e) => this.setState({ email: e.target.value })}
+                        onChange={
+													(e) => this.setState({ email: e.target.value })
+												}
                       />
                     </p>
                     <label className="label">I am</label>
@@ -83,12 +87,15 @@ export default class SignUp extends Component {
                         className="input"
                         type="password"
                         placeholder="●●●●●●●"
-                        onChange={(e) => this.setState({ password: e.target.value })}
+                        onChange={
+													(e) => this.setState({ password: e.target.value })
+												}
                       />
                     </p>
                     <label className="label">Confirm Password</label>
                     <p className="control">
-                    <input className="input" type="password" placeholder="●●●●●●●"/>
+                    <input className="input" type="password"
+											placeholder="●●●●●●●"/>
                   </p>
                   <hr/>
                   <p className="control">
@@ -100,7 +107,9 @@ export default class SignUp extends Component {
                   </p>
                 </div>
                 <p className="has-text-centered">
-                  <a href="/sign-in">If you already have an account click here to sign in</a>
+                  <a href="/sign-in">If you already have an account click here
+										to sign in
+									</a>
                 </p>
               </div>
             </div>

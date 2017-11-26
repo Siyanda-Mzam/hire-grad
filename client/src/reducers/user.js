@@ -19,7 +19,9 @@ export default (state = CANDIDATE, action) => {
       break;
     }
     case USER_ACTIONS.LOGGED_IN: {
-			let user = action.user
+			let user = action.user,
+					userFirstname = user.name.split[0],
+					userLastname = user.name.split[1];
 			newState.session_status = {
 				...newState.session_status,
 				isLoggingIn: false,
@@ -27,8 +29,8 @@ export default (state = CANDIDATE, action) => {
 			};
 			newState.person_info = {
 				...newState.person_info,
-				name: user.name.split(' ')[0], //First name
-				surname: user.name.split(' ')[1], //Last Name
+				name: userFirstname,
+				surname: userLastname,
 				email: user.email,
 				role: user.role
 			}

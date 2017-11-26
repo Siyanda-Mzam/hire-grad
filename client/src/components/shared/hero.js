@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Nav from './nav';
 import Loader from './loader';
-import heroImageGrad from '../../res/images/connectedcity.png';
-import heroImageEmpl from '../../res/images/employers.jpg';
+import heroImageGrad from '../../../res/images/connectedcity.png';
+import heroImageEmpl from '../../../res/images/employers.jpg';
 
 class Hero extends Component {
   constructor() {
@@ -11,9 +11,8 @@ class Hero extends Component {
   render() {
     const { item } = this.props;
 
-    // To get around a bug in how webpack behaves when bundling react code, we will
-    // get background images like this.
-    const pathToBackgroundToRender =  item.type === "employer" ? heroImageEmpl : heroImageGrad;
+    const pathToBackgroundToRender =
+			item.type === "employer" ? heroImageEmpl : heroImageGrad;
     const style = {
       backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.49), rgba(0, 0, 0, 0.72)),\
       url(" + pathToBackgroundToRender + ")"

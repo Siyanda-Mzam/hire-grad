@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import SignInImage from '../../res/images/signup.png';
+import SignInImage from '../../../res/images/signup.png';
 import Nav from './nav';
-import Authorization from './candidate';
-import Employer from './employer';
 import Loader from './loader';
 import  { Redirect } from 'react-router-dom'
 
@@ -54,7 +52,9 @@ export default class SignIn extends Component {
                 <div className="container section">
                   <div className="has-text-right remove-back-color">
                     <h1 className="title is-1" id="hero-text">Sign in</h1> <br/>
-                    <p className="title is-3">And thanks for being part of this growing family :)</p>
+                    <p className="title is-3">And thanks for being part of this
+											growing family :)
+										</p>
                   </div>
                 </div>
               </div>
@@ -71,19 +71,27 @@ export default class SignIn extends Component {
                       </h1>
                       <div className="login-form">
                         <p className="control has-icon has-icon-right">
-                          <input className="input email-input" type="text" placeholder="bnew@example.org" onChange={(e) => this.getEmailText(e)}/>
+                          <input className="input email-input" type="text"
+														placeholder="bnew@example.org"
+														onChange={(e) => this.getEmailText(e)}
+													/>
                           <span className="icon user">
                             <i className="fa fa-user"></i>
                           </span>
                         </p>
                         <p className="control has-icon has-icon-right">
-                          <input className="input password-input" type="password" placeholder="●●●●●●●" onChange={(e) => this.getPasswordText(e)}/>
+                          <input className="input password-input"
+														type="password" placeholder="●●●●●●●"
+														onChange={(e) => this.getPasswordText(e)}
+													/>
                           <span className="icon user">
                             <i className="fa fa-lock"></i>
                           </span>
                         </p>
                         <p className="control login">
-                          <button className="button is-success is-outlined is-large is-fullwidth" onClick={(e) => this.signIn(e)}>Sign In</button>
+                          <button className="button is-success is-outlined\
+													is-large is-fullwidth"
+														onClick={(e) => this.signIn(e)}>Sign In</button>
                         </p>
                       </div>
                       <div className="section forgot-password">
