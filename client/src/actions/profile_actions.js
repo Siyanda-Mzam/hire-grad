@@ -9,16 +9,19 @@ export const updateProfileState = snapshotData => ({
 
 export const saveProfileUpdate = summary => ({
 	type: PROFILE_ACTIONS.SAVE_PROFILE_UPDATE,
-	summary:
-	fire.database()
-					.ref("/")
-					.child(`users/${summary.userKey}`)
-					.update({
-						aboutMe: summary.aboutMeText,
-						skillsSharp: summary.skillsSharpText,
-						nextSteps: summary.nextStepsText,
-					})
+	summary: {
+	 firebase : fire.database()
+								.ref("/")
+								.child(`users/${summary.userKey}`)
+								.update({
+									aboutMe: summary.aboutMeText,
+									skillsSharp: summary.skillsSharpText,
+									nextSteps: summary.nextStepsText,
+							}),
+		summary
+	}
 })
+
 export const setNextStepsText = text => ({
   type: PROFILE_ACTIONS.SET_NEXT_STEPS_TEXT,
   text
@@ -45,11 +48,10 @@ export const editProfile = predicate => ({
 })
 
 export const updateProfileAndReport = profileEmail => (dispatch, getState) => {
-	let snap = fetch(
+	fetch(
 		`https://hire-grad.firebaseio.com/users/${profileEmail.replace('.','-')}.json`)
 		.then(res => res.json())
 		.then(snapshot => {
-			console.log("Snapshot: ", snapshot);
 			dispatch(updateProfileState(snapshot));
 		})
 		.then(() => dispatch(isUpdateFinished(true)))

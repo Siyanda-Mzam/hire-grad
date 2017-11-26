@@ -26,7 +26,6 @@ export default (state=PROFILE, action) => {
 			break;
 		}
     case PROFILE_ACTIONS.UPDATE_PROFILE: {
-			console.log("In reducer: ", action.payload);
 			let data = action.payload;
 			newState = {
 				...newState,
@@ -38,8 +37,13 @@ export default (state=PROFILE, action) => {
       break;
     }
 		case PROFILE_ACTIONS.SAVE_PROFILE_UPDATE: {
+			let data = action.summary.summary;
+			console.log(action.summary.firebase);
 				newState = {
 					...newState,
+					aboutMeText: data.aboutMeText,
+					skillsSharpText: data.aboutMeText,
+					nextStepsText: data.nextStepsText,
 					isReadOnly: true,
 					isEdit: false
 				}

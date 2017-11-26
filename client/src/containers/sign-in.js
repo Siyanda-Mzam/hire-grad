@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { login, loggingIn, loggedIn, } from '../actions/user_actions';
+import { login, loggingIn, loggedIn, loginUserThunk } from '../actions/user_actions';
 import SignIn from '../components/sign-in';
 
 /*
@@ -21,14 +21,8 @@ Gets the redux dispatch function and passes it, as props, to the wrapped compone
  */
 const mapDispatchToProps = dispatch => ({
   login: (credentials) => {
-    dispatch(login(credentials));
-  },
-  loggingIn: (isLoggingIn) => {
-    dispatch(loggingIn(isLoggingIn));
-  },
-  loggedIn: (email) => {
-    dispatch(loggedIn(email));
-  },
+    dispatch(loginUserThunk(credentials));
+  }
 });
 
 
