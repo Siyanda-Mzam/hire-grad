@@ -18,6 +18,7 @@ module.exports = {
     filename: './js/index.js',
     publicPath: '/',
   },
+	stats: 'errors-only',
   devServer: {
     hot: true,
     publicPath: '/',

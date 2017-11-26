@@ -23,16 +23,10 @@ export default class SignIn extends Component {
   }
   signIn(e) {
     e.preventDefault();
-    this.props.loggingIn(true);
     this.props.login({
       email:this.state.email,
       password: this.state.password
     });
-    // Set timeout because the above call queries firebase asynchronously
-    // Prolly not the best solution because some networks are much slower.
-    setTimeout(() => {
-      this.props.loggedIn(this.state.email);
-    }, 3000);
     return true
   }
   getEmailText(e) {

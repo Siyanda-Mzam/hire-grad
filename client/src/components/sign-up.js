@@ -20,22 +20,20 @@ export default class SignUp extends Component {
   }
   signUp(e) {
     e.preventDefault();
-    var ref = fire.database().ref("/");
-    var usersRef = ref.child("users");
-    var result = usersRef.push({
-        name: this.state.full_name,
+    let ref = fire.database().ref("/"),
+			keyFromEmail = this.state.email.replace('.', '-'),
+			usersRef = ref.child(`users/${keyFromEmail}`),
+			result = usersRef.set({
+      	name: this.state.full_name,
         email: this.state.email,
         password: this.state.password,
-    });
-    if (result.key) {
-      this.setState({
-        isLoggedIn: true,
-        user_key: result.key
-      })
-    }
+				aboutMe: '',
+				nextSteps: '',
+				skillsSharp: ''
+    	});
   }
   render() {
-    if (!this.state.isLoggedIn) {
+    if (!this.props.isLoggedIn) {
       const style = {
         backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.49), rgba(0, 0, 0, 0.72)),\
         url(" + SignUpBackgroundImage + ")"

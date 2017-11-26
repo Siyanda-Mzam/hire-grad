@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import thunk from 'redux-thunk';
+import { createStore, applyMiddleware } from 'redux';
 import {
   BrowserRouter,
 } from 'react-router-dom';
@@ -15,7 +16,7 @@ Here we are getting the initial state injected by the server. See routes/index.j
  */
 const initialState = window.__INITIAL_STATE__; // eslint-disable-line
 
-const store = createStore(reducers, initialState);
+const store = applyMiddleware(thunk)(createStore)(reducers, initialState);
 
 /*
 While creating a store, we will inject the initial state we received from the server to our app.

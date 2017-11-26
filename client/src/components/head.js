@@ -14,7 +14,7 @@ class Header extends Component {
                   </figure>
                 </div>
                 <div className="media-content column is-7 center-xy-absolutely">
-                  <p className="title is-4">{this.props.parentProps.databaseSnapshot.name}</p>
+                  <p className="title is-4">{this.props.parentProps.name}</p>
                   <p className="">
                     <span className="icon "><i className="fa fa-map-marker"></i></span> Johannesburg
                     <i className="fa fa-pencil push-right"></i>

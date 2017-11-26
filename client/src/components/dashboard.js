@@ -14,29 +14,20 @@ class Dashboard extends Component {
     this.saveProfileInfo = this.saveProfileInfo.bind(this);
   }
   componentDidMount() {
-		let user = localStorage.getItem("user");
-		if (user) {
-			this.props.updateProfileState(user);
-      setTimeout(() => {
-        this.props.isUpdateFinished(true);
-      }, 5000)
-		}
-		else {
-			let userEmail = this.props.history.location.state.email
-			localStorage.setItem("user", userEmail);
-		}
+		let userEmail = this.props.history.location.state.email
+		this.props.updateProfileState(userEmail)
   }
   saveProfileInfo = () => {
 		let summary = {
 			aboutMeText: this.props.aboutMeText,
 			skillsSharpText: this.props.skillsSharpText,
 			nextStepsText: this.props.nextStepsText,
-			userKey: this.props.userKey,
+			userKey: this.props.history.location.state.email.replace('.', '-'),
 		}
 		this.props.saveProfileUpdate(summary);
   }
   render() {
-    if (!this.props.hasReceivedData) {
+    if (!this.props.hasReceivedData && !this.props.isUpdateFinished) {
       return (
         <div className="section">
           <div className="section">
