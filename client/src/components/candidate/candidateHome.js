@@ -5,7 +5,7 @@ import HowWorks from '../shared/how';
 import WhyDoIt from './why';
 import ApplyNow from '../shared/applynow';
 
-const Home = ({category, howItWorks}) => (
+const CandidateHome = ({category, howItWorks}) => (
   <div>
     <Hero item={category}/>
     <HowWorks howItWorks={howItWorks}/>
@@ -15,4 +15,4 @@ const Home = ({category, howItWorks}) => (
   </div>
 );
 
-export default Home;
+export default CandidateHome;

@@ -21,7 +21,6 @@ class Dashboard extends Component {
 			aboutMeText: this.props.aboutMeText,
 			skillsSharpText: this.props.skillsSharpText,
 			nextStepsText: this.props.nextStepsText,
-			userKey: this.props.history.location.state.email.replace('.', '-'),
 		};
 		this.props.saveProfileUpdate(summary);
   }
@@ -38,13 +37,24 @@ class Dashboard extends Component {
     else {
       return (
         <div>
-          <Nav navStyle={"sign-up-nav-background-color"} isLoggedIn={this.props.hasReceivedData}/>
+          <Nav navStyle={"sign-up-nav-background-color"}
+						isLoggedIn={this.props.hasReceivedData}/>
           <br/><br/>
-          <Header parentProps={this.props} saveProfileUpdate={this.saveProfileUpdate} />
-          <Summary parentProps={this.props} saveProfileInfo={this.saveProfileInfo} />
-          <RolesInterestedIn parentProps={this.props} saveProfileInfo={this.saveProfileInfo} />
-          <Skills parentProps={this.props} saveProfileInfo={this.saveProfileInfo} />
-          <RoadMap parentProps={this.props} saveProfileInfo={this.saveProfileInfo} />
+
+          <Header parentProps={this.props}
+						saveProfileUpdate={this.saveProfileUpdate}/>
+
+          <Summary parentProps={this.props}
+						saveProfileInfo={this.saveProfileInfo}/>
+
+          <RolesInterestedIn parentProps={this.props}
+						saveProfileInfo={this.saveProfileInfo}/>
+
+          <Skills parentProps={this.props}
+						saveProfileInfo={this.saveProfileInfo}/>
+
+          <RoadMap parentProps={this.props}
+						saveProfileInfo={this.saveProfileInfo}/>
         </div>
       );
     }

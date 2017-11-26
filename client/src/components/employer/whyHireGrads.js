@@ -9,7 +9,8 @@ const WhyHireGrads = () => {
 							<h1>Access a curated list of graduates</h1>
 							<br />
 							<h4><strong>Only the best</strong></h4>
-							<p>Our team curates the graduates who apply to GenZ and you’ll only see top candidates.</p>
+							<p>Our team curates the graduates who apply to GenZ
+								and you’ll only see top candidates.</p>
 							<br/>
 							<h4><strong>Ready to move</strong></h4>
 							<p>Discover talented graduates ready to grow their careers</p>
@@ -21,7 +22,8 @@ const WhyHireGrads = () => {
 								<div className="media">
 									<div className="media-left">
 										<figure id="sample-image" className="image is-100x100">
-											<img src="https://placehold.it/280" alt="Placeholder image" />
+											<img src="https://placehold.it/280"
+												alt="Placeholder image" />
 										</figure>
 									</div>
 									<div className="media-content">
@@ -32,7 +34,8 @@ const WhyHireGrads = () => {
 											<tbody>
 												<tr>
 													<td>
-														<i className="fa fa-map-marker" aria-hidden="true"></i>
+														<i className="fa fa-map-marker" aria-hidden="true">
+														</i>
 													</td>
 													<td>
 														<span className=" subtitle is-6 card-text-pull">
@@ -54,7 +57,8 @@ const WhyHireGrads = () => {
 
 												<tr>
 													<td>
-														<i className="fa fa-graduation-cap" aria-hidden="true"></i>
+														<i className="fa fa-graduation-cap"
+															aria-hidden="true"></i>
 													</td>
 													<td>
 														<span className=" subtitle is-6 card-text-pull">

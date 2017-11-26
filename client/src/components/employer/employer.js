@@ -13,7 +13,7 @@ const Employer = ({item, howItWorks, user}) => {
     );
   }
   return (
-  <div className="">
+  <div>
     <Hero item={item}/>
 		<WhyHireGrads/>
 		<HiringInsights/>
